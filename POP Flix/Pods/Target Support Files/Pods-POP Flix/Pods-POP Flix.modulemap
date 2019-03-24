@@ -1,0 +1,6 @@
+framework module Pods_POP_Flix {
+  umbrella header "Pods-POP Flix-umbrella.h"
+
+  export *
+  module * { export * }
+}

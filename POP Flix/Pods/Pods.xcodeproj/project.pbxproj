@@ -1,0 +1,783 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D79941B79920133C3E7C032F376EC64 /* UIImageColors-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D417767BA7B8C929B04246149266621 /* UIImageColors-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		30106A8D3792C130BA0F4C3BDDA9B2A4 /* Pods-POP Flix-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 09E9F13700582FCC69E89B16EE37AE37 /* Pods-POP Flix-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5AC7D5FC989842C88E6388CB1D25EEA7 /* Pods-POP FlixTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 16693BE24F8DF21E37BD31FAD4F01C9B /* Pods-POP FlixTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FD9DC6A03E296D7880A2DDACF26CD56 /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE31EC9C49D63BED28B7DA56AA69425D /* UIImageColors.swift */; };
+		8952BF791B1DB6CFBDD46C85C02B96BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		8D44EC2870595D9A72C76D20C19FE534 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		9379304CAC54D0EC328D2C48D1EE502E /* UIImageColors-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 831D1A71D51B4A28873C292566114672 /* UIImageColors-dummy.m */; };
+		DD4DAAF5278A59469F45D0B38138E561 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		F331F87E7ACD5127516097B7724DF227 /* Pods-POP FlixTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0228EEECB66E360E16A73D1E671B94EC /* Pods-POP FlixTests-dummy.m */; };
+		FB74F9843F4BAD9294E108BE6CB8968F /* Pods-POP Flix-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 397417D9456A67BC023CF303D52979E4 /* Pods-POP Flix-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		346FAFB87042E040515C29E0382882BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFEF7E304379E4DEA594FE542460CE6D;
+			remoteInfo = UIImageColors;
+		};
+		9C31811A553FB5F1DC599AC1053ABB0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F28C774D0CA9EA85D321AC177B58D1D6;
+			remoteInfo = "Pods-POP Flix";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0228EEECB66E360E16A73D1E671B94EC /* Pods-POP FlixTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-POP FlixTests-dummy.m"; sourceTree = "<group>"; };
+		09E9F13700582FCC69E89B16EE37AE37 /* Pods-POP Flix-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-POP Flix-umbrella.h"; sourceTree = "<group>"; };
+		0A11D66B3B6DE2B51F029682D26F71E9 /* Pods_POP_FlixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_POP_FlixTests.framework; path = "Pods-POP FlixTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16693BE24F8DF21E37BD31FAD4F01C9B /* Pods-POP FlixTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-POP FlixTests-umbrella.h"; sourceTree = "<group>"; };
+		1A428F16D89DC9A09AF0F92CBAC4B9F8 /* UIImageColors-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UIImageColors-Info.plist"; sourceTree = "<group>"; };
+		2D79CC016693667F189187F29A5B9B09 /* Pods_POP_Flix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_POP_Flix.framework; path = "Pods-POP Flix.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		397417D9456A67BC023CF303D52979E4 /* Pods-POP Flix-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-POP Flix-dummy.m"; sourceTree = "<group>"; };
+		3E90D4188FA81776C9B38D3E3940330A /* Pods-POP Flix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-POP Flix.debug.xcconfig"; sourceTree = "<group>"; };
+		3F05B353855398EF68DDB7C68EAFC0E2 /* Pods-POP Flix-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-POP Flix-Info.plist"; sourceTree = "<group>"; };
+		47D681AEA60D399108E6B56E844FB1BA /* UIImageColors-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImageColors-prefix.pch"; sourceTree = "<group>"; };
+		53502826D10D10554A1F86702A85AC47 /* UIImageColors.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = UIImageColors.modulemap; sourceTree = "<group>"; };
+		5553D4FD8E43CFF5DA8D3424898B9E8A /* UIImageColors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UIImageColors.framework; path = UIImageColors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D417767BA7B8C929B04246149266621 /* UIImageColors-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImageColors-umbrella.h"; sourceTree = "<group>"; };
+		64632C20943B1089DF73DC978956EA26 /* Pods-POP FlixTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-POP FlixTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		65ADA36B5DAE10D5F7B7DB8A3C130894 /* UIImageColors.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UIImageColors.xcconfig; sourceTree = "<group>"; };
+		694E9F721F2185CED6DA157FEC73129F /* Pods-POP FlixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-POP FlixTests.release.xcconfig"; sourceTree = "<group>"; };
+		6E8E669B1206002D298BB22C2D3C2DAA /* Pods-POP Flix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-POP Flix.release.xcconfig"; sourceTree = "<group>"; };
+		6EED0BCBEFEF1489DB59981E8EAECA81 /* Pods-POP Flix-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-POP Flix-acknowledgements.markdown"; sourceTree = "<group>"; };
+		831D1A71D51B4A28873C292566114672 /* UIImageColors-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImageColors-dummy.m"; sourceTree = "<group>"; };
+		8C8B1AF0BBEFBDA45650C9B462B9C113 /* Pods-POP Flix-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-POP Flix-frameworks.sh"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A311641B2FD9F138980B62569FDCA970 /* Pods-POP FlixTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-POP FlixTests.modulemap"; sourceTree = "<group>"; };
+		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D88E3910E52DFE1B3448C01E4DF40759 /* Pods-POP Flix-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-POP Flix-acknowledgements.plist"; sourceTree = "<group>"; };
+		DEC766C24066BBC1E907A9B948AC8C3E /* Pods-POP FlixTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-POP FlixTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		DF666D958DFB04B7E2636BB8670DBB6B /* Pods-POP Flix.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-POP Flix.modulemap"; sourceTree = "<group>"; };
+		F4314042CA7C1A601296240365E78D65 /* Pods-POP FlixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-POP FlixTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FE31EC9C49D63BED28B7DA56AA69425D /* UIImageColors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageColors.swift; path = UIImageColors/Sources/UIImageColors.swift; sourceTree = "<group>"; };
+		FF2D2194C3A9785C9C8DA245AA4A0D35 /* Pods-POP FlixTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-POP FlixTests-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A4745913B7D1A9CD97939F5B366EB7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD4DAAF5278A59469F45D0B38138E561 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6BB06743436530FD229A61750CF427A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8952BF791B1DB6CFBDD46C85C02B96BA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9D1D4F86BF729E80BB4021313CF5F61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D44EC2870595D9A72C76D20C19FE534 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C5E9BD1EF8B2F2C1B0872F353593141 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D79CC016693667F189187F29A5B9B09 /* Pods_POP_Flix.framework */,
+				0A11D66B3B6DE2B51F029682D26F71E9 /* Pods_POP_FlixTests.framework */,
+				5553D4FD8E43CFF5DA8D3424898B9E8A /* UIImageColors.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E228D0BC813C664AB8399A11DA352D1 /* Pods-POP FlixTests */ = {
+			isa = PBXGroup;
+			children = (
+				A311641B2FD9F138980B62569FDCA970 /* Pods-POP FlixTests.modulemap */,
+				64632C20943B1089DF73DC978956EA26 /* Pods-POP FlixTests-acknowledgements.markdown */,
+				DEC766C24066BBC1E907A9B948AC8C3E /* Pods-POP FlixTests-acknowledgements.plist */,
+				0228EEECB66E360E16A73D1E671B94EC /* Pods-POP FlixTests-dummy.m */,
+				FF2D2194C3A9785C9C8DA245AA4A0D35 /* Pods-POP FlixTests-Info.plist */,
+				16693BE24F8DF21E37BD31FAD4F01C9B /* Pods-POP FlixTests-umbrella.h */,
+				F4314042CA7C1A601296240365E78D65 /* Pods-POP FlixTests.debug.xcconfig */,
+				694E9F721F2185CED6DA157FEC73129F /* Pods-POP FlixTests.release.xcconfig */,
+			);
+			name = "Pods-POP FlixTests";
+			path = "Target Support Files/Pods-POP FlixTests";
+			sourceTree = "<group>";
+		};
+		79D69CFAB4EC2E701329A816475A2C25 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E68BF63C57AD4F4DBDCC3FFD232A503D /* Pods-POP Flix */,
+				6E228D0BC813C664AB8399A11DA352D1 /* Pods-POP FlixTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		969AF6C38A8F3714DA211645D5D55C5F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				53502826D10D10554A1F86702A85AC47 /* UIImageColors.modulemap */,
+				65ADA36B5DAE10D5F7B7DB8A3C130894 /* UIImageColors.xcconfig */,
+				831D1A71D51B4A28873C292566114672 /* UIImageColors-dummy.m */,
+				1A428F16D89DC9A09AF0F92CBAC4B9F8 /* UIImageColors-Info.plist */,
+				47D681AEA60D399108E6B56E844FB1BA /* UIImageColors-prefix.pch */,
+				5D417767BA7B8C929B04246149266621 /* UIImageColors-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/UIImageColors";
+			sourceTree = "<group>";
+		};
+		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		B87C09DC048BD8438C539A069B0A612E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD1B6696C2B29D1A1BC5E6227EC396E2 /* UIImageColors */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				B87C09DC048BD8438C539A069B0A612E /* Pods */,
+				2C5E9BD1EF8B2F2C1B0872F353593141 /* Products */,
+				79D69CFAB4EC2E701329A816475A2C25 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B055D0CFEA43187E72B03DED11F5662 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E68BF63C57AD4F4DBDCC3FFD232A503D /* Pods-POP Flix */ = {
+			isa = PBXGroup;
+			children = (
+				DF666D958DFB04B7E2636BB8670DBB6B /* Pods-POP Flix.modulemap */,
+				6EED0BCBEFEF1489DB59981E8EAECA81 /* Pods-POP Flix-acknowledgements.markdown */,
+				D88E3910E52DFE1B3448C01E4DF40759 /* Pods-POP Flix-acknowledgements.plist */,
+				397417D9456A67BC023CF303D52979E4 /* Pods-POP Flix-dummy.m */,
+				8C8B1AF0BBEFBDA45650C9B462B9C113 /* Pods-POP Flix-frameworks.sh */,
+				3F05B353855398EF68DDB7C68EAFC0E2 /* Pods-POP Flix-Info.plist */,
+				09E9F13700582FCC69E89B16EE37AE37 /* Pods-POP Flix-umbrella.h */,
+				3E90D4188FA81776C9B38D3E3940330A /* Pods-POP Flix.debug.xcconfig */,
+				6E8E669B1206002D298BB22C2D3C2DAA /* Pods-POP Flix.release.xcconfig */,
+			);
+			name = "Pods-POP Flix";
+			path = "Target Support Files/Pods-POP Flix";
+			sourceTree = "<group>";
+		};
+		FD1B6696C2B29D1A1BC5E6227EC396E2 /* UIImageColors */ = {
+			isa = PBXGroup;
+			children = (
+				FE31EC9C49D63BED28B7DA56AA69425D /* UIImageColors.swift */,
+				969AF6C38A8F3714DA211645D5D55C5F /* Support Files */,
+			);
+			name = UIImageColors;
+			path = UIImageColors;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6937670C051ADCE31FFE443631DEFCD0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D79941B79920133C3E7C032F376EC64 /* UIImageColors-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1F574B0B2D13EAEC1488AB688057520 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30106A8D3792C130BA0F4C3BDDA9B2A4 /* Pods-POP Flix-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAEC00B1A4AA8B136E864AD1E508B18F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AC7D5FC989842C88E6388CB1D25EEA7 /* Pods-POP FlixTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BCAA1DE199BA42EE11422DD83159D740 /* Pods-POP FlixTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2329C17752DF230C8E0CDBAE2BA8BC13 /* Build configuration list for PBXNativeTarget "Pods-POP FlixTests" */;
+			buildPhases = (
+				CAEC00B1A4AA8B136E864AD1E508B18F /* Headers */,
+				46E6F5E0C8E02DF87510C08AA0083545 /* Sources */,
+				B6BB06743436530FD229A61750CF427A /* Frameworks */,
+				A0EC4A50E96688A818828E8A9EF1CB69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A59A11327E9BDBAB0800C0D12754103 /* PBXTargetDependency */,
+			);
+			name = "Pods-POP FlixTests";
+			productName = "Pods-POP FlixTests";
+			productReference = 0A11D66B3B6DE2B51F029682D26F71E9 /* Pods_POP_FlixTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BFEF7E304379E4DEA594FE542460CE6D /* UIImageColors */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8C84793537CB04829127C18CE3E52A8 /* Build configuration list for PBXNativeTarget "UIImageColors" */;
+			buildPhases = (
+				6937670C051ADCE31FFE443631DEFCD0 /* Headers */,
+				E0655C4D65BE5F4BD5E49FAD665ECEF9 /* Sources */,
+				F9D1D4F86BF729E80BB4021313CF5F61 /* Frameworks */,
+				76E45280D00AF0A68C73C5CF3ED7B758 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UIImageColors;
+			productName = UIImageColors;
+			productReference = 5553D4FD8E43CFF5DA8D3424898B9E8A /* UIImageColors.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F28C774D0CA9EA85D321AC177B58D1D6 /* Pods-POP Flix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6ADDC8E5C7E9EB40424726CEABA6A0C3 /* Build configuration list for PBXNativeTarget "Pods-POP Flix" */;
+			buildPhases = (
+				A1F574B0B2D13EAEC1488AB688057520 /* Headers */,
+				5010358FA016774C63B826C19D454AB2 /* Sources */,
+				3A4745913B7D1A9CD97939F5B366EB7F /* Frameworks */,
+				07F77BD44374649CBC0A366E387971F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1C0FF518C4E67F11AC435FDAF33BE9EA /* PBXTargetDependency */,
+			);
+			name = "Pods-POP Flix";
+			productName = "Pods-POP Flix";
+			productReference = 2D79CC016693667F189187F29A5B9B09 /* Pods_POP_Flix.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 2C5E9BD1EF8B2F2C1B0872F353593141 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F28C774D0CA9EA85D321AC177B58D1D6 /* Pods-POP Flix */,
+				BCAA1DE199BA42EE11422DD83159D740 /* Pods-POP FlixTests */,
+				BFEF7E304379E4DEA594FE542460CE6D /* UIImageColors */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07F77BD44374649CBC0A366E387971F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76E45280D00AF0A68C73C5CF3ED7B758 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0EC4A50E96688A818828E8A9EF1CB69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		46E6F5E0C8E02DF87510C08AA0083545 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F331F87E7ACD5127516097B7724DF227 /* Pods-POP FlixTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5010358FA016774C63B826C19D454AB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB74F9843F4BAD9294E108BE6CB8968F /* Pods-POP Flix-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0655C4D65BE5F4BD5E49FAD665ECEF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9379304CAC54D0EC328D2C48D1EE502E /* UIImageColors-dummy.m in Sources */,
+				5FD9DC6A03E296D7880A2DDACF26CD56 /* UIImageColors.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1C0FF518C4E67F11AC435FDAF33BE9EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UIImageColors;
+			target = BFEF7E304379E4DEA594FE542460CE6D /* UIImageColors */;
+			targetProxy = 346FAFB87042E040515C29E0382882BB /* PBXContainerItemProxy */;
+		};
+		7A59A11327E9BDBAB0800C0D12754103 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-POP Flix";
+			target = F28C774D0CA9EA85D321AC177B58D1D6 /* Pods-POP Flix */;
+			targetProxy = 9C31811A553FB5F1DC599AC1053ABB0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00ACDE291C7A0019447EF3C93DFF6E38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 694E9F721F2185CED6DA157FEC73129F /* Pods-POP FlixTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-POP FlixTests/Pods-POP FlixTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-POP FlixTests/Pods-POP FlixTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		331BA32FE6C22937A4A84F549CEB0785 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65ADA36B5DAE10D5F7B7DB8A3C130894 /* UIImageColors.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UIImageColors/UIImageColors-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UIImageColors/UIImageColors-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UIImageColors/UIImageColors.modulemap";
+				PRODUCT_MODULE_NAME = UIImageColors;
+				PRODUCT_NAME = UIImageColors;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3B199EB2E0AEED9ADEE9154ED9B791BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E8E669B1206002D298BB22C2D3C2DAA /* Pods-POP Flix.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-POP Flix/Pods-POP Flix-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-POP Flix/Pods-POP Flix.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A105C1752A0A49B30ED621B71E226CDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		A67810BD7E228FF73B7189E27AA03A87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4314042CA7C1A601296240365E78D65 /* Pods-POP FlixTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-POP FlixTests/Pods-POP FlixTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-POP FlixTests/Pods-POP FlixTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C1391485F05B41BD35738A433056B7FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		CFF774BA5BAD363CC74D58E099C5B432 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65ADA36B5DAE10D5F7B7DB8A3C130894 /* UIImageColors.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UIImageColors/UIImageColors-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UIImageColors/UIImageColors-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UIImageColors/UIImageColors.modulemap";
+				PRODUCT_MODULE_NAME = UIImageColors;
+				PRODUCT_NAME = UIImageColors;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DC86CCA20B9F78CFE620B379EEF6D901 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E90D4188FA81776C9B38D3E3940330A /* Pods-POP Flix.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-POP Flix/Pods-POP Flix-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-POP Flix/Pods-POP Flix.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2329C17752DF230C8E0CDBAE2BA8BC13 /* Build configuration list for PBXNativeTarget "Pods-POP FlixTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A67810BD7E228FF73B7189E27AA03A87 /* Debug */,
+				00ACDE291C7A0019447EF3C93DFF6E38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1391485F05B41BD35738A433056B7FA /* Debug */,
+				A105C1752A0A49B30ED621B71E226CDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6ADDC8E5C7E9EB40424726CEABA6A0C3 /* Build configuration list for PBXNativeTarget "Pods-POP Flix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC86CCA20B9F78CFE620B379EEF6D901 /* Debug */,
+				3B199EB2E0AEED9ADEE9154ED9B791BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8C84793537CB04829127C18CE3E52A8 /* Build configuration list for PBXNativeTarget "UIImageColors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				331BA32FE6C22937A4A84F549CEB0785 /* Debug */,
+				CFF774BA5BAD363CC74D58E099C5B432 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

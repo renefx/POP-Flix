@@ -1,0 +1,6 @@
+framework module Pods_POP_FlixTests {
+  umbrella header "Pods-POP FlixTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

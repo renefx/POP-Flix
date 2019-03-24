@@ -1,0 +1,730 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B85C664A292EB0DDA3A16DC8 /* Pods_POP_Flix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB0234B84CE3720416BD711 /* Pods_POP_Flix.framework */; };
+		EE9FA58741129C1B242AA13A /* Pods_POP_FlixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BEE168229A8C7342AA4B8F /* Pods_POP_FlixTests.framework */; };
+		F5503E722247EF8B009C3496 /* LauncherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5503E712247EF8B009C3496 /* LauncherViewController.swift */; };
+		F578247122472A5800A08D86 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F578247022472A5800A08D86 /* UIColorExtension.swift */; };
+		F57824742247472D00A08D86 /* MovieListSectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57824732247472D00A08D86 /* MovieListSectionCollectionView.swift */; };
+		F578247822474F0A00A08D86 /* MovieDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F578247722474F0A00A08D86 /* MovieDetailTableViewController.swift */; };
+		F578247A2247502900A08D86 /* ColorfulNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57824792247502900A08D86 /* ColorfulNavigationViewController.swift */; };
+		F59898642246AD58006FE815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59898632246AD58006FE815 /* AppDelegate.swift */; };
+		F59898692246AD58006FE815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F59898672246AD58006FE815 /* Main.storyboard */; };
+		F598986B2246AD5B006FE815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F598986A2246AD5B006FE815 /* Assets.xcassets */; };
+		F598986E2246AD5B006FE815 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F598986C2246AD5B006FE815 /* LaunchScreen.storyboard */; };
+		F59898792246AD5B006FE815 /* POP_FlixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59898782246AD5B006FE815 /* POP_FlixTests.swift */; };
+		F59898892246BAB6006FE815 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F59898862246BAB5006FE815 /* Montserrat-Light.ttf */; };
+		F598988A2246BAB6006FE815 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F59898872246BAB5006FE815 /* Montserrat-SemiBold.ttf */; };
+		F598988B2246BAB6006FE815 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F59898882246BAB5006FE815 /* Montserrat-Medium.ttf */; };
+		F5FD39C72246CCD70041AEF6 /* MovieListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39C62246CCD70041AEF6 /* MovieListTableViewController.swift */; };
+		F5FD39C92246CD700041AEF6 /* MovieListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39C82246CD700041AEF6 /* MovieListTableViewCell.swift */; };
+		F5FD39CD2246F06D0041AEF6 /* MovieListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39CC2246F06D0041AEF6 /* MovieListSectionHeader.swift */; };
+		F5FD39CF2246F0BB0041AEF6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39CE2246F0BB0041AEF6 /* Constants.swift */; };
+		F5FD39D22246F12B0041AEF6 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39D12246F12B0041AEF6 /* ColorPalette.swift */; };
+		F5FD39D42246F1AC0041AEF6 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39D32246F1AC0041AEF6 /* UIViewControllerExtension.swift */; };
+		F5FD39D62246F88E0041AEF6 /* PosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39D52246F88E0041AEF6 /* PosterCollectionViewCell.swift */; };
+		F5FD39D8224711310041AEF6 /* ColorfulLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39D7224711310041AEF6 /* ColorfulLine.swift */; };
+		F5FD39DA2247129B0041AEF6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39D92247129B0041AEF6 /* UIViewExtension.swift */; };
+		F5FD39DD22471E260041AEF6 /* MoviesPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39DC22471E260041AEF6 /* MoviesPageViewController.swift */; };
+		F5FD39DF224723D70041AEF6 /* BigPosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39DE224723D70041AEF6 /* BigPosterViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F59898752246AD5B006FE815 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F59898582246AD58006FE815 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F598985F2246AD58006FE815;
+			remoteInfo = "POP Flix";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		043EB3D9443CD90F8B04F58C /* Pods-POP Flix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POP Flix.release.xcconfig"; path = "Target Support Files/Pods-POP Flix/Pods-POP Flix.release.xcconfig"; sourceTree = "<group>"; };
+		0B2C7B8F0EB2F63AD5E1C6DC /* Pods-POP Flix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POP Flix.debug.xcconfig"; path = "Target Support Files/Pods-POP Flix/Pods-POP Flix.debug.xcconfig"; sourceTree = "<group>"; };
+		1FB1613162DD08EFE05E0FD8 /* Pods-POP FlixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POP FlixTests.release.xcconfig"; path = "Target Support Files/Pods-POP FlixTests/Pods-POP FlixTests.release.xcconfig"; sourceTree = "<group>"; };
+		5FB0234B84CE3720416BD711 /* Pods_POP_Flix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POP_Flix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		852AF212FF5FE37122ABDAFB /* Pods-POP FlixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POP FlixTests.debug.xcconfig"; path = "Target Support Files/Pods-POP FlixTests/Pods-POP FlixTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C5BEE168229A8C7342AA4B8F /* Pods_POP_FlixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POP_FlixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5503E712247EF8B009C3496 /* LauncherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherViewController.swift; sourceTree = "<group>"; };
+		F578247022472A5800A08D86 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		F57824732247472D00A08D86 /* MovieListSectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListSectionCollectionView.swift; sourceTree = "<group>"; };
+		F578247722474F0A00A08D86 /* MovieDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailTableViewController.swift; sourceTree = "<group>"; };
+		F57824792247502900A08D86 /* ColorfulNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorfulNavigationViewController.swift; sourceTree = "<group>"; };
+		F59898602246AD58006FE815 /* POP Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "POP Flix.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F59898632246AD58006FE815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F59898682246AD58006FE815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F598986A2246AD5B006FE815 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F598986D2246AD5B006FE815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F598986F2246AD5B006FE815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F59898742246AD5B006FE815 /* POP FlixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "POP FlixTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F59898782246AD5B006FE815 /* POP_FlixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POP_FlixTests.swift; sourceTree = "<group>"; };
+		F598987A2246AD5B006FE815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F59898862246BAB5006FE815 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		F59898872246BAB5006FE815 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		F59898882246BAB5006FE815 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		F5FD39C62246CCD70041AEF6 /* MovieListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewController.swift; sourceTree = "<group>"; };
+		F5FD39C82246CD700041AEF6 /* MovieListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewCell.swift; sourceTree = "<group>"; };
+		F5FD39CC2246F06D0041AEF6 /* MovieListSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListSectionHeader.swift; sourceTree = "<group>"; };
+		F5FD39CE2246F0BB0041AEF6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F5FD39D12246F12B0041AEF6 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		F5FD39D32246F1AC0041AEF6 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		F5FD39D52246F88E0041AEF6 /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
+		F5FD39D7224711310041AEF6 /* ColorfulLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorfulLine.swift; sourceTree = "<group>"; };
+		F5FD39D92247129B0041AEF6 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		F5FD39DC22471E260041AEF6 /* MoviesPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPageViewController.swift; sourceTree = "<group>"; };
+		F5FD39DE224723D70041AEF6 /* BigPosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPosterViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F598985D2246AD58006FE815 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B85C664A292EB0DDA3A16DC8 /* Pods_POP_Flix.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F59898712246AD5B006FE815 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE9FA58741129C1B242AA13A /* Pods_POP_FlixTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		354AA40F5BC120B4E1E78167 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FB0234B84CE3720416BD711 /* Pods_POP_Flix.framework */,
+				C5BEE168229A8C7342AA4B8F /* Pods_POP_FlixTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8819785DC650136A8382E7BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0B2C7B8F0EB2F63AD5E1C6DC /* Pods-POP Flix.debug.xcconfig */,
+				043EB3D9443CD90F8B04F58C /* Pods-POP Flix.release.xcconfig */,
+				852AF212FF5FE37122ABDAFB /* Pods-POP FlixTests.debug.xcconfig */,
+				1FB1613162DD08EFE05E0FD8 /* Pods-POP FlixTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F5503E752247F799009C3496 /* Movie Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F578247722474F0A00A08D86 /* MovieDetailTableViewController.swift */,
+			);
+			path = "Movie Detail";
+			sourceTree = "<group>";
+		};
+		F5503E762247FA94009C3496 /* Cell Movie Collection */ = {
+			isa = PBXGroup;
+			children = (
+				F578247622474A2600A08D86 /* Collection */,
+				F5FD39C82246CD700041AEF6 /* MovieListTableViewCell.swift */,
+			);
+			path = "Cell Movie Collection";
+			sourceTree = "<group>";
+		};
+		F578247222472A8900A08D86 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F5FD39D32246F1AC0041AEF6 /* UIViewControllerExtension.swift */,
+				F578247022472A5800A08D86 /* UIColorExtension.swift */,
+				F5FD39D92247129B0041AEF6 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F57824752247499000A08D86 /* Section Header */ = {
+			isa = PBXGroup;
+			children = (
+				F5FD39DC22471E260041AEF6 /* MoviesPageViewController.swift */,
+				F5FD39DE224723D70041AEF6 /* BigPosterViewController.swift */,
+				F5FD39CC2246F06D0041AEF6 /* MovieListSectionHeader.swift */,
+			);
+			path = "Section Header";
+			sourceTree = "<group>";
+		};
+		F578247622474A2600A08D86 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				F57824732247472D00A08D86 /* MovieListSectionCollectionView.swift */,
+				F5FD39D52246F88E0041AEF6 /* PosterCollectionViewCell.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		F59898572246AD58006FE815 = {
+			isa = PBXGroup;
+			children = (
+				F59898622246AD58006FE815 /* POP Flix */,
+				F59898772246AD5B006FE815 /* POP FlixTests */,
+				F59898612246AD58006FE815 /* Products */,
+				8819785DC650136A8382E7BB /* Pods */,
+				354AA40F5BC120B4E1E78167 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F59898612246AD58006FE815 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F59898602246AD58006FE815 /* POP Flix.app */,
+				F59898742246AD5B006FE815 /* POP FlixTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F59898622246AD58006FE815 /* POP Flix */ = {
+			isa = PBXGroup;
+			children = (
+				F59898632246AD58006FE815 /* AppDelegate.swift */,
+				F5FD39C52246CAA90041AEF6 /* View */,
+				F5FD39D02246F0C20041AEF6 /* Util */,
+				F59898852246BAA2006FE815 /* Resources */,
+				F598986F2246AD5B006FE815 /* Info.plist */,
+			);
+			path = "POP Flix";
+			sourceTree = "<group>";
+		};
+		F59898772246AD5B006FE815 /* POP FlixTests */ = {
+			isa = PBXGroup;
+			children = (
+				F59898782246AD5B006FE815 /* POP_FlixTests.swift */,
+				F598987A2246AD5B006FE815 /* Info.plist */,
+			);
+			path = "POP FlixTests";
+			sourceTree = "<group>";
+		};
+		F59898852246BAA2006FE815 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F598988C2246BABD006FE815 /* Fonts */,
+				F59898672246AD58006FE815 /* Main.storyboard */,
+				F598986C2246AD5B006FE815 /* LaunchScreen.storyboard */,
+				F598986A2246AD5B006FE815 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F598988C2246BABD006FE815 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F59898862246BAB5006FE815 /* Montserrat-Light.ttf */,
+				F59898882246BAB5006FE815 /* Montserrat-Medium.ttf */,
+				F59898872246BAB5006FE815 /* Montserrat-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F5FD39C52246CAA90041AEF6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F5503E712247EF8B009C3496 /* LauncherViewController.swift */,
+				F5503E762247FA94009C3496 /* Cell Movie Collection */,
+				F5FD39DB224715BB0041AEF6 /* Movie List */,
+				F5503E752247F799009C3496 /* Movie Detail */,
+				F5FD39D7224711310041AEF6 /* ColorfulLine.swift */,
+				F57824792247502900A08D86 /* ColorfulNavigationViewController.swift */,
+				F578247222472A8900A08D86 /* Extensions */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F5FD39D02246F0C20041AEF6 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F5FD39CE2246F0BB0041AEF6 /* Constants.swift */,
+				F5FD39D12246F12B0041AEF6 /* ColorPalette.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		F5FD39DB224715BB0041AEF6 /* Movie List */ = {
+			isa = PBXGroup;
+			children = (
+				F57824752247499000A08D86 /* Section Header */,
+				F5FD39C62246CCD70041AEF6 /* MovieListTableViewController.swift */,
+			);
+			path = "Movie List";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F598985F2246AD58006FE815 /* POP Flix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F598987D2246AD5B006FE815 /* Build configuration list for PBXNativeTarget "POP Flix" */;
+			buildPhases = (
+				77C20C5FCD7C591F2AA49C87 /* [CP] Check Pods Manifest.lock */,
+				F598985C2246AD58006FE815 /* Sources */,
+				F598985D2246AD58006FE815 /* Frameworks */,
+				F598985E2246AD58006FE815 /* Resources */,
+				FB7E47730C26090934F1CB6C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "POP Flix";
+			productName = "POP Flix";
+			productReference = F59898602246AD58006FE815 /* POP Flix.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F59898732246AD5B006FE815 /* POP FlixTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F59898802246AD5B006FE815 /* Build configuration list for PBXNativeTarget "POP FlixTests" */;
+			buildPhases = (
+				778C08244EC0960EAB7FE1EA /* [CP] Check Pods Manifest.lock */,
+				F59898702246AD5B006FE815 /* Sources */,
+				F59898712246AD5B006FE815 /* Frameworks */,
+				F59898722246AD5B006FE815 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F59898762246AD5B006FE815 /* PBXTargetDependency */,
+			);
+			name = "POP FlixTests";
+			productName = "POP FlixTests";
+			productReference = F59898742246AD5B006FE815 /* POP FlixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F59898582246AD58006FE815 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Renefx;
+				TargetAttributes = {
+					F598985F2246AD58006FE815 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					F59898732246AD5B006FE815 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = F598985F2246AD58006FE815;
+					};
+				};
+			};
+			buildConfigurationList = F598985B2246AD58006FE815 /* Build configuration list for PBXProject "POP Flix" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F59898572246AD58006FE815;
+			productRefGroup = F59898612246AD58006FE815 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F598985F2246AD58006FE815 /* POP Flix */,
+				F59898732246AD5B006FE815 /* POP FlixTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F598985E2246AD58006FE815 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F59898892246BAB6006FE815 /* Montserrat-Light.ttf in Resources */,
+				F598986E2246AD5B006FE815 /* LaunchScreen.storyboard in Resources */,
+				F598986B2246AD5B006FE815 /* Assets.xcassets in Resources */,
+				F59898692246AD58006FE815 /* Main.storyboard in Resources */,
+				F598988B2246BAB6006FE815 /* Montserrat-Medium.ttf in Resources */,
+				F598988A2246BAB6006FE815 /* Montserrat-SemiBold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F59898722246AD5B006FE815 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		778C08244EC0960EAB7FE1EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-POP FlixTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77C20C5FCD7C591F2AA49C87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-POP Flix-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB7E47730C26090934F1CB6C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-POP Flix/Pods-POP Flix-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UIImageColors/UIImageColors.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageColors.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-POP Flix/Pods-POP Flix-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F598985C2246AD58006FE815 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5FD39DA2247129B0041AEF6 /* UIViewExtension.swift in Sources */,
+				F5FD39D62246F88E0041AEF6 /* PosterCollectionViewCell.swift in Sources */,
+				F5FD39C72246CCD70041AEF6 /* MovieListTableViewController.swift in Sources */,
+				F5FD39D42246F1AC0041AEF6 /* UIViewControllerExtension.swift in Sources */,
+				F5FD39D22246F12B0041AEF6 /* ColorPalette.swift in Sources */,
+				F59898642246AD58006FE815 /* AppDelegate.swift in Sources */,
+				F578247A2247502900A08D86 /* ColorfulNavigationViewController.swift in Sources */,
+				F578247122472A5800A08D86 /* UIColorExtension.swift in Sources */,
+				F5FD39DF224723D70041AEF6 /* BigPosterViewController.swift in Sources */,
+				F5FD39DD22471E260041AEF6 /* MoviesPageViewController.swift in Sources */,
+				F5503E722247EF8B009C3496 /* LauncherViewController.swift in Sources */,
+				F5FD39D8224711310041AEF6 /* ColorfulLine.swift in Sources */,
+				F5FD39CD2246F06D0041AEF6 /* MovieListSectionHeader.swift in Sources */,
+				F5FD39C92246CD700041AEF6 /* MovieListTableViewCell.swift in Sources */,
+				F578247822474F0A00A08D86 /* MovieDetailTableViewController.swift in Sources */,
+				F5FD39CF2246F0BB0041AEF6 /* Constants.swift in Sources */,
+				F57824742247472D00A08D86 /* MovieListSectionCollectionView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F59898702246AD5B006FE815 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F59898792246AD5B006FE815 /* POP_FlixTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F59898762246AD5B006FE815 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F598985F2246AD58006FE815 /* POP Flix */;
+			targetProxy = F59898752246AD5B006FE815 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F59898672246AD58006FE815 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F59898682246AD58006FE815 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F598986C2246AD5B006FE815 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F598986D2246AD5B006FE815 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F598987B2246AD5B006FE815 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F598987C2246AD5B006FE815 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F598987E2246AD5B006FE815 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B2C7B8F0EB2F63AD5E1C6DC /* Pods-POP Flix.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K3SMJ6ES47;
+				INFOPLIST_FILE = "POP Flix/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.renefx.POP-Flix";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F598987F2246AD5B006FE815 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 043EB3D9443CD90F8B04F58C /* Pods-POP Flix.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K3SMJ6ES47;
+				INFOPLIST_FILE = "POP Flix/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.renefx.POP-Flix";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F59898812246AD5B006FE815 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 852AF212FF5FE37122ABDAFB /* Pods-POP FlixTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K3SMJ6ES47;
+				INFOPLIST_FILE = "POP FlixTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.renefx.POP-FlixTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/POP Flix.app/POP Flix";
+			};
+			name = Debug;
+		};
+		F59898822246AD5B006FE815 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FB1613162DD08EFE05E0FD8 /* Pods-POP FlixTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K3SMJ6ES47;
+				INFOPLIST_FILE = "POP FlixTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.renefx.POP-FlixTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/POP Flix.app/POP Flix";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F598985B2246AD58006FE815 /* Build configuration list for PBXProject "POP Flix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F598987B2246AD5B006FE815 /* Debug */,
+				F598987C2246AD5B006FE815 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F598987D2246AD5B006FE815 /* Build configuration list for PBXNativeTarget "POP Flix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F598987E2246AD5B006FE815 /* Debug */,
+				F598987F2246AD5B006FE815 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F59898802246AD5B006FE815 /* Build configuration list for PBXNativeTarget "POP FlixTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F59898812246AD5B006FE815 /* Debug */,
+				F59898822246AD5B006FE815 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F59898582246AD58006FE815 /* Project object */;
+}
