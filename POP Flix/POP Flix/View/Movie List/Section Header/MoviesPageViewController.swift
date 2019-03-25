@@ -65,6 +65,7 @@ class MoviesPageViewController: UIPageViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
         self.dataSource = self
+        self.delegate = self
         createLoadingView()
     }
     
@@ -129,6 +130,13 @@ extension MoviesPageViewController: BigPosterViewControllerDelegate {
 }
 
 extension MoviesPageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if let bigPosterVC = pageViewController.viewControllers?.first as? BigPosterViewController,
+            let colorChanged = bigPosterVC.colorPrimary {
+            delegateMovie?.changedColor(colorChanged)
+        }
+    }
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = pages.index(of: viewController) else {
             return nil

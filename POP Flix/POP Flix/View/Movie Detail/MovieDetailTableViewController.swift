@@ -39,6 +39,19 @@ class MovieDetailTableViewController: UITableViewController {
         configureViews()
     }
     
+    @IBAction func shareMovie(_ sender: Any) {
+        let shareMessage = presenter?.shareMessage as Any
+        let shareImage = self.posterImage as Any
+        let shareLink = presenter?.shareLink as Any
+        let shareArray: [Any] = [shareMessage, shareImage, shareLink]
+        let activityViewController = UIActivityViewController(activityItems: shareArray, applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion:  nil)
+    }
+    
+    @IBAction func addAsFavoriteMovie(_ sender: Any) {
+        
+    }
+    
     func configureViews() {
         self.navigationItem.title = General.movieText
         guard let presenter = self.presenter else { return }

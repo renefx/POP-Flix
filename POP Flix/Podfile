@@ -9,7 +9,7 @@ target 'POP Flix' do
   pod 'Alamofire', '~> 4.8.1'
   pod 'NVActivityIndicatorView', '~> 4.6.1'
   
-  pod 'Kingfisher', '~> 5.3.0'
+  pod 'RealmSwift', '~> 3.13.1'
  
 
   target 'POP FlixTests' do

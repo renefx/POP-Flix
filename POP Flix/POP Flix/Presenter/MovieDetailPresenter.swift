@@ -58,14 +58,29 @@ class MovieDetailPresenter {
         }
     }
     
-    var numbersOfSimilarMovies: Int {
+    public var numbersOfSimilarMovies: Int {
         get {
             guard let similarMovies = similarMovies else { return 0 }
             return similarMovies.count <= maxMoviesMoreLikeThis ? similarMovies.count : maxMoviesMoreLikeThis
         }
     }
     
-    func posterForCellAt(_ row: Int) -> Data? {
+    public var shareMessage: String? {
+        get {
+            guard let title = movie?.title else { return nil}
+            return ShareMessages.movie + title
+        }
+    }
+    
+    var shareLink: URL? {
+        get {
+            guard let link = movie?.imdbId,
+                let url = URL(string: "\(ShareMessages.movieUrl)\(link)") else { return nil }
+            return url
+        }
+    }
+    
+    public func posterForCellAt(_ row: Int) -> Data? {
         guard let similarMovies = similarMovies,
             row < similarMovies.count,
             let posterPath = similarMovies[row].posterPath else {
@@ -74,7 +89,7 @@ class MovieDetailPresenter {
         return imageDataForPath(posterPath)
     }
     
-    func movie(atIndex row: Int) -> Movie? {
+    public func movie(atIndex row: Int) -> Movie? {
         guard let similarMovies = similarMovies,
             row < similarMovies.count else {
                 return nil

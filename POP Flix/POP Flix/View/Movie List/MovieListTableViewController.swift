@@ -11,7 +11,6 @@ import UIImageColors
 
 class MovieListTableViewController: UITableViewController {
     @IBOutlet var pagesContainerView: UIView!
-    
     var presenter = MovieListPresenter()
     private let headerHeight: CGFloat = 45
     var collectionViews: [MovieListSectionCollectionView] = []
@@ -113,7 +112,7 @@ extension MovieListTableViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? PosterCollectionViewCell,
             let indexPath = cell.index,
-            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: StoryboardID.movieDetail) as? MovieDetailTableViewController {
+            let viewController = storyboard?.instantiateViewController(withIdentifier: StoryboardID.movieDetail) as? MovieDetailTableViewController {
             
             stopScroll()
             viewController.movie = presenter.getMovieSelectedFor(indexPath)
@@ -130,8 +129,7 @@ extension MovieListTableViewController: MoviesPageViewControllerDelegate {
     
     func selectedMovie(_ index: Int) {
         print(index)
-        let storyboard = UIStoryboard(name: StoryboardID.storyboardName, bundle: nil)
-        if let detailVC = storyboard.instantiateViewController(withIdentifier: StoryboardID.movieDetail) as? MovieDetailTableViewController {
+        if let detailVC = storyboard?.instantiateViewController(withIdentifier: StoryboardID.movieDetail) as? MovieDetailTableViewController {
             stopScroll()
             detailVC.movie = presenter.movieToHeader(atIndex: index)
             self.navigationController?.pushViewController(detailVC, animated: true)
@@ -159,12 +157,12 @@ extension MovieListTableViewController: MovieListPresenterDelegate {
         
     }
 
-    func latestMoviesFound(_ error: RequestErrors?, _ shouldReloadData: Bool) {
+    func latestMoviesFound(_ error: RequestErrors?) {
         if let error = error {
             setHeaderLoading(false)
             return
         }
-        if shouldReloadData, let headerPageVC = self.children.first as? MoviesPageViewController {
+        if let headerPageVC = self.children.first as? MoviesPageViewController {
             headerPageVC.movies = presenter.moviesToHeader()
             presenter.getLatestMoviesSmallPosters()
             collectionViews.first?.reloadData()

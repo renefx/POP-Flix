@@ -11,7 +11,7 @@ import Alamofire
 
 protocol MovieListPresenterDelegate: AnyObject {
     func movieFound(_ error: RequestErrors?)
-    func latestMoviesFound(_ error: RequestErrors?,_ shouldReloadData: Bool)
+    func latestMoviesFound(_ error: RequestErrors?)
 }
 
 enum SectionNames: Int {
@@ -27,14 +27,10 @@ class MovieListPresenter {
     weak var delegate: MovieListPresenterDelegate?
     private var service = ServiceConnection()
     private var latestMovies:[Movie]?
+    private var moviesDownloaded:[[Movie]?] = []
     private var latestMoviesImages:[(Data?, String?)] = []
-    private var headerConnectionOpen = 0
-    private var connectionsOpen = 0
     private var sectionNames = ["Latest","Now Playing","Popular","Top Rated","Upcoming"]
     
-    public var isSearchingHeader: Bool {
-        get { return headerConnectionOpen == 0 }
-    }
 //    var movieID: Int?
 //    private var maxMoviesMoreLikeThis = 8
 //    private var movie: Movie?
@@ -200,23 +196,17 @@ class MovieListPresenter {
     // MARK: - Request
     
     func searchForLatestMovies() {
-        self.headerConnectionOpen += 1
-        self.connectionsOpen += 1
         guard Connectivity.isConnectedToInternet() else {
-            headerConnectionOpen -= 1
-            connectionsOpen -= 1
             self.latestMovies = nil
-            delegate?.latestMoviesFound(.noInternet, connectionsOpen == 0)
+            delegate?.latestMoviesFound(.noInternet)
             return
         }
         
         let url = ServiceConnection.urlLatestMovies()
         service.makeHTTPGetRequest(url, MovieList.self) { latestMovies in
-            self.headerConnectionOpen -= 1
-            self.connectionsOpen -= 1
             self.latestMovies = latestMovies?.list
             let response: RequestErrors? = latestMovies != nil ? nil : .unexpectedError
-            self.delegate?.latestMoviesFound(response, self.headerConnectionOpen == 0)
+            self.delegate?.latestMoviesFound(response)
         }
     }
 }

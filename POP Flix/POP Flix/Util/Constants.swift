@@ -20,6 +20,11 @@ struct General {
     static let movieText = "Movie"
 }
 
+struct ShareMessages {
+    static let movie = "Hey check out this movie: "
+    static let movieUrl = "https://www.imdb.com/title/"
+}
+
 struct Font {
     static let fontThin = "Montserrat-Thin"
     static let fontExtraLight = "Montserrat-ExtraLight"

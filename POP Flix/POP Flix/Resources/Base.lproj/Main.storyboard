@@ -324,8 +324,16 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="bsb-1d-qpA">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="ZSF-Wf-4YD"/>
-                            <barButtonItem systemItem="action" id="Ftc-wj-bBk"/>
+                            <barButtonItem systemItem="add" id="ZSF-Wf-4YD">
+                                <connections>
+                                    <action selector="addAsFavoriteMovie:" destination="ZpB-Yh-IbW" id="q8Q-3D-zbv"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="Ftc-wj-bBk">
+                                <connections>
+                                    <action selector="shareMovie:" destination="ZpB-Yh-IbW" id="BbX-8U-An1"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -454,8 +462,8 @@
 Fronteira</string>
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="33" name="Montserrat-Light"/>
-                                            <font key="NSOriginalFont" size="48" name="Montserrat-Light"/>
+                                            <font key="NSFont" metaFont="system" size="33"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="48"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>

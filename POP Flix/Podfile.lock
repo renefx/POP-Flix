@@ -1,34 +1,40 @@
 PODS:
   - Alamofire (4.8.1)
   - Fakery (3.4.0)
-  - Kingfisher (5.3.0)
   - NVActivityIndicatorView (4.6.1):
     - NVActivityIndicatorView/Presenter (= 4.6.1)
   - NVActivityIndicatorView/Presenter (4.6.1)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
   - UIImageColors (2.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.1)
   - Fakery (~> 3.4.0)
-  - Kingfisher (~> 5.3.0)
   - NVActivityIndicatorView (~> 4.6.1)
+  - RealmSwift (~> 3.13.1)
   - UIImageColors (~> 2.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Fakery
-    - Kingfisher
     - NVActivityIndicatorView
+    - Realm
+    - RealmSwift
     - UIImageColors
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Fakery: 885e894a3e7c392e1da96c6e46a1abe5a0b28686
-  Kingfisher: 4692c783ffb99e9e2e40a6eb3e518c3b96c6fa8c
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   UIImageColors: d2ef3b0877d203cbb06489eeb78ea8b7788caabe
 
-PODFILE CHECKSUM: 60eb17502f7f4a2921059797b536bca5b0335400
+PODFILE CHECKSUM: 1a3e4497c9b99636856e3344a5bcd9ce2e98cfda
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.6.1
