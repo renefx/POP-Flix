@@ -29,6 +29,10 @@ extension MovieListTableViewCell {
         self.section = section
         posterCollection.delegate = protocolResponder
         posterCollection.dataSource = protocolResponder
+        reloadData()
+    }
+    
+    func reloadData() {
         posterCollection.reloadData()
     }
 }

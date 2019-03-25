@@ -17,4 +17,13 @@ extension UIViewController {
     var screenHeight: CGFloat {
         return UIScreen.main.bounds.size.height
     }
+    
+    func setNavBarBackgroundColor(_ color: UIColor) {
+        navigationController?.navigationBar.barTintColor = color
+    }
+    
+    func setNavBarTitleItemsColor(_ color: UIColor) {
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: color]
+        self.navigationController?.navigationBar.tintColor = color
+    }
 }

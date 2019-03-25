@@ -10,6 +10,22 @@
 		B85C664A292EB0DDA3A16DC8 /* Pods_POP_Flix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB0234B84CE3720416BD711 /* Pods_POP_Flix.framework */; };
 		EE9FA58741129C1B242AA13A /* Pods_POP_FlixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BEE168229A8C7342AA4B8F /* Pods_POP_FlixTests.framework */; };
 		F5503E722247EF8B009C3496 /* LauncherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5503E712247EF8B009C3496 /* LauncherViewController.swift */; };
+		F5503E8522480C4E009C3496 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5503E7E22480C4D009C3496 /* Montserrat-ExtraLight.ttf */; };
+		F5503E8622480C4E009C3496 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5503E7F22480C4D009C3496 /* Montserrat-Thin.ttf */; };
+		F5503E8722480C4E009C3496 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5503E8022480C4D009C3496 /* Montserrat-Bold.ttf */; };
+		F5503E8922480C4E009C3496 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5503E8222480C4D009C3496 /* Montserrat-Black.ttf */; };
+		F5503E8D22480CC0009C3496 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5503E8C22480CC0009C3496 /* Montserrat-Medium.ttf */; };
+		F5503E8F22480CCA009C3496 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5503E8E22480CCA009C3496 /* Montserrat-Light.ttf */; };
+		F5503E9122480CF5009C3496 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5503E9022480CF4009C3496 /* Montserrat-SemiBold.ttf */; };
+		F5503E9322480CFD009C3496 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5503E9222480CFD009C3496 /* Montserrat-Regular.ttf */; };
+		F5503E95224815F4009C3496 /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5503E94224815F4009C3496 /* MovieDetailPresenter.swift */; };
+		F5503E98224818B9009C3496 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5503E97224818B9009C3496 /* Connectivity.swift */; };
+		F5503E9A22481EB5009C3496 /* ServiceConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5503E9922481EB5009C3496 /* ServiceConnection.swift */; };
+		F5503E9C2248201F009C3496 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5503E9B2248201F009C3496 /* Movie.swift */; };
+		F5503E9F224825A0009C3496 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5503E9E224825A0009C3496 /* Genres.swift */; };
+		F5503EA1224832F6009C3496 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5503EA0224832F6009C3496 /* StringExtension.swift */; };
+		F5503EA32248407A009C3496 /* SimilarMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5503EA22248407A009C3496 /* SimilarMovies.swift */; };
+		F5503EA5224857AC009C3496 /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5503EA4224857AC009C3496 /* MovieListPresenter.swift */; };
 		F578247122472A5800A08D86 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F578247022472A5800A08D86 /* UIColorExtension.swift */; };
 		F57824742247472D00A08D86 /* MovieListSectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57824732247472D00A08D86 /* MovieListSectionCollectionView.swift */; };
 		F578247822474F0A00A08D86 /* MovieDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F578247722474F0A00A08D86 /* MovieDetailTableViewController.swift */; };
@@ -19,9 +35,6 @@
 		F598986B2246AD5B006FE815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F598986A2246AD5B006FE815 /* Assets.xcassets */; };
 		F598986E2246AD5B006FE815 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F598986C2246AD5B006FE815 /* LaunchScreen.storyboard */; };
 		F59898792246AD5B006FE815 /* POP_FlixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59898782246AD5B006FE815 /* POP_FlixTests.swift */; };
-		F59898892246BAB6006FE815 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F59898862246BAB5006FE815 /* Montserrat-Light.ttf */; };
-		F598988A2246BAB6006FE815 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F59898872246BAB5006FE815 /* Montserrat-SemiBold.ttf */; };
-		F598988B2246BAB6006FE815 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F59898882246BAB5006FE815 /* Montserrat-Medium.ttf */; };
 		F5FD39C72246CCD70041AEF6 /* MovieListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39C62246CCD70041AEF6 /* MovieListTableViewController.swift */; };
 		F5FD39C92246CD700041AEF6 /* MovieListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39C82246CD700041AEF6 /* MovieListTableViewCell.swift */; };
 		F5FD39CD2246F06D0041AEF6 /* MovieListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FD39CC2246F06D0041AEF6 /* MovieListSectionHeader.swift */; };
@@ -53,6 +66,22 @@
 		852AF212FF5FE37122ABDAFB /* Pods-POP FlixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POP FlixTests.debug.xcconfig"; path = "Target Support Files/Pods-POP FlixTests/Pods-POP FlixTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C5BEE168229A8C7342AA4B8F /* Pods_POP_FlixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POP_FlixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5503E712247EF8B009C3496 /* LauncherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherViewController.swift; sourceTree = "<group>"; };
+		F5503E7E22480C4D009C3496 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		F5503E7F22480C4D009C3496 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		F5503E8022480C4D009C3496 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		F5503E8222480C4D009C3496 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		F5503E8C22480CC0009C3496 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		F5503E8E22480CCA009C3496 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		F5503E9022480CF4009C3496 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		F5503E9222480CFD009C3496 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		F5503E94224815F4009C3496 /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
+		F5503E97224818B9009C3496 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		F5503E9922481EB5009C3496 /* ServiceConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConnection.swift; sourceTree = "<group>"; };
+		F5503E9B2248201F009C3496 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		F5503E9E224825A0009C3496 /* Genres.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
+		F5503EA0224832F6009C3496 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		F5503EA22248407A009C3496 /* SimilarMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMovies.swift; sourceTree = "<group>"; };
+		F5503EA4224857AC009C3496 /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
 		F578247022472A5800A08D86 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		F57824732247472D00A08D86 /* MovieListSectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListSectionCollectionView.swift; sourceTree = "<group>"; };
 		F578247722474F0A00A08D86 /* MovieDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -66,9 +95,6 @@
 		F59898742246AD5B006FE815 /* POP FlixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "POP FlixTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F59898782246AD5B006FE815 /* POP_FlixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POP_FlixTests.swift; sourceTree = "<group>"; };
 		F598987A2246AD5B006FE815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F59898862246BAB5006FE815 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
-		F59898872246BAB5006FE815 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
-		F59898882246BAB5006FE815 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		F5FD39C62246CCD70041AEF6 /* MovieListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewController.swift; sourceTree = "<group>"; };
 		F5FD39C82246CD700041AEF6 /* MovieListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewCell.swift; sourceTree = "<group>"; };
 		F5FD39CC2246F06D0041AEF6 /* MovieListSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListSectionHeader.swift; sourceTree = "<group>"; };
@@ -139,6 +165,26 @@
 			path = "Cell Movie Collection";
 			sourceTree = "<group>";
 		};
+		F5503E962248160B009C3496 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F5503EA4224857AC009C3496 /* MovieListPresenter.swift */,
+				F5503E9922481EB5009C3496 /* ServiceConnection.swift */,
+				F5503E94224815F4009C3496 /* MovieDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F5503E9D22482023009C3496 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F5503EA22248407A009C3496 /* SimilarMovies.swift */,
+				F5503E9B2248201F009C3496 /* Movie.swift */,
+				F5503E9E224825A0009C3496 /* Genres.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F578247222472A8900A08D86 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +239,8 @@
 			children = (
 				F59898632246AD58006FE815 /* AppDelegate.swift */,
 				F5FD39C52246CAA90041AEF6 /* View */,
+				F5503E962248160B009C3496 /* Presenter */,
+				F5503E9D22482023009C3496 /* Model */,
 				F5FD39D02246F0C20041AEF6 /* Util */,
 				F59898852246BAA2006FE815 /* Resources */,
 				F598986F2246AD5B006FE815 /* Info.plist */,
@@ -223,9 +271,14 @@
 		F598988C2246BABD006FE815 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				F59898862246BAB5006FE815 /* Montserrat-Light.ttf */,
-				F59898882246BAB5006FE815 /* Montserrat-Medium.ttf */,
-				F59898872246BAB5006FE815 /* Montserrat-SemiBold.ttf */,
+				F5503E7F22480C4D009C3496 /* Montserrat-Thin.ttf */,
+				F5503E7E22480C4D009C3496 /* Montserrat-ExtraLight.ttf */,
+				F5503E8E22480CCA009C3496 /* Montserrat-Light.ttf */,
+				F5503E9222480CFD009C3496 /* Montserrat-Regular.ttf */,
+				F5503E8C22480CC0009C3496 /* Montserrat-Medium.ttf */,
+				F5503E9022480CF4009C3496 /* Montserrat-SemiBold.ttf */,
+				F5503E8022480C4D009C3496 /* Montserrat-Bold.ttf */,
+				F5503E8222480C4D009C3496 /* Montserrat-Black.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -247,8 +300,10 @@
 		F5FD39D02246F0C20041AEF6 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				F5503EA0224832F6009C3496 /* StringExtension.swift */,
 				F5FD39CE2246F0BB0041AEF6 /* Constants.swift */,
 				F5FD39D12246F12B0041AEF6 /* ColorPalette.swift */,
+				F5503E97224818B9009C3496 /* Connectivity.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -292,6 +347,7 @@
 				F59898702246AD5B006FE815 /* Sources */,
 				F59898712246AD5B006FE815 /* Frameworks */,
 				F59898722246AD5B006FE815 /* Resources */,
+				202355CDA24E6252FEB92EC4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -346,12 +402,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F59898892246BAB6006FE815 /* Montserrat-Light.ttf in Resources */,
+				F5503E8622480C4E009C3496 /* Montserrat-Thin.ttf in Resources */,
+				F5503E9322480CFD009C3496 /* Montserrat-Regular.ttf in Resources */,
 				F598986E2246AD5B006FE815 /* LaunchScreen.storyboard in Resources */,
 				F598986B2246AD5B006FE815 /* Assets.xcassets in Resources */,
+				F5503E8F22480CCA009C3496 /* Montserrat-Light.ttf in Resources */,
+				F5503E9122480CF5009C3496 /* Montserrat-SemiBold.ttf in Resources */,
+				F5503E8922480C4E009C3496 /* Montserrat-Black.ttf in Resources */,
+				F5503E8522480C4E009C3496 /* Montserrat-ExtraLight.ttf in Resources */,
 				F59898692246AD58006FE815 /* Main.storyboard in Resources */,
-				F598988B2246BAB6006FE815 /* Montserrat-Medium.ttf in Resources */,
-				F598988A2246BAB6006FE815 /* Montserrat-SemiBold.ttf in Resources */,
+				F5503E8D22480CC0009C3496 /* Montserrat-Medium.ttf in Resources */,
+				F5503E8722480C4E009C3496 /* Montserrat-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +426,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		202355CDA24E6252FEB92EC4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-POP FlixTests/Pods-POP FlixTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Fakery/Fakery.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fakery.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-POP FlixTests/Pods-POP FlixTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		778C08244EC0960EAB7FE1EA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -418,12 +501,18 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-POP Flix/Pods-POP Flix-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/UIImageColors/UIImageColors.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageColors.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,20 +529,28 @@
 			files = (
 				F5FD39DA2247129B0041AEF6 /* UIViewExtension.swift in Sources */,
 				F5FD39D62246F88E0041AEF6 /* PosterCollectionViewCell.swift in Sources */,
+				F5503E98224818B9009C3496 /* Connectivity.swift in Sources */,
 				F5FD39C72246CCD70041AEF6 /* MovieListTableViewController.swift in Sources */,
 				F5FD39D42246F1AC0041AEF6 /* UIViewControllerExtension.swift in Sources */,
 				F5FD39D22246F12B0041AEF6 /* ColorPalette.swift in Sources */,
 				F59898642246AD58006FE815 /* AppDelegate.swift in Sources */,
+				F5503E95224815F4009C3496 /* MovieDetailPresenter.swift in Sources */,
 				F578247A2247502900A08D86 /* ColorfulNavigationViewController.swift in Sources */,
+				F5503EA5224857AC009C3496 /* MovieListPresenter.swift in Sources */,
 				F578247122472A5800A08D86 /* UIColorExtension.swift in Sources */,
 				F5FD39DF224723D70041AEF6 /* BigPosterViewController.swift in Sources */,
+				F5503E9A22481EB5009C3496 /* ServiceConnection.swift in Sources */,
 				F5FD39DD22471E260041AEF6 /* MoviesPageViewController.swift in Sources */,
 				F5503E722247EF8B009C3496 /* LauncherViewController.swift in Sources */,
+				F5503E9C2248201F009C3496 /* Movie.swift in Sources */,
+				F5503E9F224825A0009C3496 /* Genres.swift in Sources */,
 				F5FD39D8224711310041AEF6 /* ColorfulLine.swift in Sources */,
 				F5FD39CD2246F06D0041AEF6 /* MovieListSectionHeader.swift in Sources */,
+				F5503EA32248407A009C3496 /* SimilarMovies.swift in Sources */,
 				F5FD39C92246CD700041AEF6 /* MovieListTableViewCell.swift in Sources */,
 				F578247822474F0A00A08D86 /* MovieDetailTableViewController.swift in Sources */,
 				F5FD39CF2246F0BB0041AEF6 /* Constants.swift in Sources */,
+				F5503EA1224832F6009C3496 /* StringExtension.swift in Sources */,
 				F57824742247472D00A08D86 /* MovieListSectionCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,7 +644,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -602,7 +699,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -627,7 +724,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.renefx.POP-Flix";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -646,7 +743,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.renefx.POP-Flix";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -654,7 +751,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 852AF212FF5FE37122ABDAFB /* Pods-POP FlixTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K3SMJ6ES47;
@@ -676,7 +773,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1FB1613162DD08EFE05E0FD8 /* Pods-POP FlixTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K3SMJ6ES47;

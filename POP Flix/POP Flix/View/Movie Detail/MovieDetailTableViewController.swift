@@ -7,38 +7,61 @@
 //
 
 import UIKit
+import UIImageColors
 
 class MovieDetailTableViewController: UITableViewController {
+    @IBOutlet weak var backgroundPosterView: UIView!
     @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieInfo: UILabel!
     @IBOutlet weak var movieDescription: UILabel!
-    @IBOutlet weak var movieCast: UILabel!
-    @IBOutlet weak var movieDirector: UILabel!
+    @IBOutlet weak var movieTagline: UILabel!
+    @IBOutlet weak var movieGenres: UILabel!
     @IBOutlet weak var moreLikeThisCollection: MovieListSectionCollectionView!
     @IBOutlet weak var movieListTableViewCell: MovieListTableViewCell!
     
-    let posters = ["poster", "poster", "poster", "poster", "poster", "poster", "poster", "poster", "poster", "poster", "poster", "poster", "poster"]
+    var presenter: MovieDetailPresenter?
+    var movie: Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Movie"
-        self.navigationController?.navigationBar.isHidden = false
-        self.movieDescription.text = "Trying to earn an acquittal for a teen client accused of murdering his wealthy father, a defense attorney uncovers disturbing facts about the victim."
-        
         movieListTableViewCell.setCollectionViewProtocolResponder(self)
+        self.presenter = MovieDetailPresenter(movie)
+        
+        guard let presenter = self.presenter else { return }
+        presenter.delegate = self
+        presenter.searchForMovie()
+        presenter.searchForRelatedMovies()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureViews()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+    func configureViews() {
+        self.navigationItem.title = General.movieText
+        guard let presenter = self.presenter else { return }
+        self.movieTitle.text = presenter.movieTitle
+        self.movieInfo.text = presenter.movieInfo
+        self.movieTagline.text = presenter.movieTagline
+        self.movieDescription.text = presenter.movieDescription
+        self.movieGenres.text = presenter.movieGenres
+        if let data = presenter.moviePoster {
+            self.posterImage.image = UIImage(data: data)
+        }
+        
+        if let colors = posterImage.image?.getColors() {
+            movieTitle.textColor = colors.primary
+            movieInfo.textColor = colors.primary
+            backgroundPosterView.backgroundColor = colors.background
+            self.view.backgroundColor = colors.background
+            setNavBarBackgroundColor(colors.background)
+            setNavBarTitleItemsColor(colors.primary)
+        }
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -47,19 +70,46 @@ class MovieDetailTableViewController: UITableViewController {
 extension MovieDetailTableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return posters.count
+        guard let presenter = self.presenter else { return 0 }
+        return presenter.numbersOfSimilarMovies
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let reuseIdentifierCollectionCell = CellIdentifier.posterDetail
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierCollectionCell, for: indexPath)
-        if let cell = cell as? PosterCollectionViewCell {
-            cell.posterImage.image = UIImage(named: posters[indexPath.row])
+        if let cell = cell as? PosterCollectionViewCell,
+            let presenter = self.presenter,
+            let data = presenter.posterForCellAt(indexPath.row) {
+            cell.posterImage.image = UIImage(data: data)
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        let storyboard = UIStoryboard(name: StoryboardID.storyboardName, bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: StoryboardID.movieDetail) as? MovieDetailTableViewController,
+            let presenter = self.presenter {
+            viewController.movie = presenter.movie(atIndex: indexPath.row)
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+        
     }
+}
+
+extension MovieDetailTableViewController: MovieDetailPresenterelegate {
+    func movieFound(_ error: RequestErrors?) {
+        if let error = error, error == .noInternet {
+            return
+        }
+        configureViews()
+        tableView.reloadData()
+    }
+    
+    func similarMoviesFound(_ error: RequestErrors?) {
+        if let error = error, error == .noInternet {
+            return
+        }
+        movieListTableViewCell.reloadData()
+    }
+    
 }

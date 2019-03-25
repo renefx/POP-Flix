@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
         let storyboard = UIStoryboard(name: StoryboardID.storyboardName, bundle: nil)
         let launcherViewController = storyboard.instantiateViewController(withIdentifier: StoryboardID.launcher)
         self.window?.rootViewController = launcherViewController

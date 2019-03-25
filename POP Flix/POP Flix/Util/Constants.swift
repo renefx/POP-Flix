@@ -9,15 +9,26 @@
 import Foundation
 
 struct General {
+    static let appName = "POP Flix"
     static let none = ""
     static let dash = "-"
+    static let dashCharacter: Character = "-"
+    static let space = " "
     static let noWifiImage = "no-wifi"
+    static let dateRegex = "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$"
+    static let genresText = "Genres: "
+    static let movieText = "Movie"
 }
 
 struct Font {
-    static let fontMedium = "Montserrat-Medium"
+    static let fontThin = "Montserrat-Thin"
+    static let fontExtraLight = "Montserrat-ExtraLight"
     static let fontLight = "Montserrat-Light"
+    static let fontRegular = "Montserrat-Regular"
+    static let fontMedium = "Montserrat-Medium"
     static let fontSemibold = "Montserrat-Semibold"
+    static let fontBold = "Montserrat-Bold"
+    static let fontBlack = "Montserrat-Black"
 }
 
 struct ErrorMessages {
@@ -56,6 +67,8 @@ struct StoryboardID {
     static let storyboardName = "Main"
     static let bigPoster = "bigPosterViewControllerID"
     static let launcher = "LauncherViewControllerID"
+    static let movieDetail = "MovieDetailTableViewControllerID"
+    
 }
 
 struct CellIdentifier {
@@ -64,10 +77,20 @@ struct CellIdentifier {
     static let posterDetail = "posterDetailIdentifier"
 }
 
-struct OpenWeatherAPI {
-    static let urlCurrentWeather = "https://api.openweathermap.org/data/2.5/weather?"
-    static let urlForecast = "https://api.openweathermap.org/data/2.5/forecast?"
-    static let apiKey = "b496cbb102e3b82b4e47438315bd449f"
+enum ImageSize: String {
+    case poster_big = "original"
+    case poster = "w185"
+}
+
+struct TheMovieDBAPI {
+    static let urlImages = "https://image.tmdb.org/t/p/"
+    static let urlMovie = "https://api.themoviedb.org/3/movie"
+    static let apiKey = "6302949d7afd94f9edd948caf36b33c2"
+}
+
+struct Language {
+    static let english = "en-US"
+    static let portugues = "pt-BR"
 }
 
 struct UserDefaultKeys {

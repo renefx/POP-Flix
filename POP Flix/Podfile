@@ -1,5 +1,4 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '11.0'
 
 target 'POP Flix' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -7,10 +6,16 @@ target 'POP Flix' do
 
   # Pods for POP Flix
   pod 'UIImageColors', '~>2.1.0'
+  pod 'Alamofire', '~> 4.8.1'
+  pod 'NVActivityIndicatorView', '~> 4.6.1'
+  
+  pod 'Kingfisher', '~> 5.3.0'
+ 
 
   target 'POP FlixTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Fakery', '~> 3.4.0'
   end
 
 end
