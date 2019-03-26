@@ -43,15 +43,15 @@ class ServiceConnection {
     }
     
     // MARK: - Custom Requests (Get - Post - Authentication)
-    func makeHTTPGetRequest<T:Codable>(_ url: String,_ type: T.Type, onCompletion: @escaping (T?) -> Void) {
+    func makeHTTPGetRequest<T:Codable>(_ url: String,_ type: T.Type, onCompletion: @escaping (T?, RequestErrors?) -> Void) {
         Alamofire.request(url).responseJSON { response in
             if let data = response.data {
                 do {
                     let object = try self.jsonDecoder.decode(type, from: data)
-                    onCompletion(object)
+                    onCompletion(object, nil)
                     return
                 } catch {
-                    onCompletion(nil)
+                    onCompletion(nil, .unexpectedError)
                 }
             }
         }

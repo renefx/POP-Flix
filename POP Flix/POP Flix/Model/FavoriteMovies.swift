@@ -1,55 +1,57 @@
 //
-//  Genres.swift
+//  FavoriteMovies.swift
+//  POP Flix
 //
-//  Created by Renê Xavier on 24/03/19
-//  Copyright (c) Renefx. All rights reserved.
+//  Created by Renê Xavier on 25/03/19.
+//  Copyright © 2019 Renefx. All rights reserved.
 //
 
 import Foundation
 import Realm
 import RealmSwift
 
-public class Genres: Object, Codable {
+public class FavoriteMovies: Object, Codable {
     
     // MARK: Declaration for string constants to be used to decode and also serialize.
     private enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
+        case movie
+        case posterImage
+        case id
     }
-    
-    // MARK: Properties
-    public let id = RealmOptional<Int>()
-    @objc dynamic var name: String? = nil
     
     override public static func primaryKey() -> String? {
         return "id"
     }
     
-    //    public var id: Int?
-    //    public var name: String?
+    // MARK: Properties
+    @objc dynamic var movie: Movie?
+    @objc dynamic var posterImage: Data? = nil
+    let id = RealmOptional<Int>()
     
     required init() {
         super.init()
     }
     
-    convenience init(id: Int?, name: String?) {
+    convenience init(movie: Movie?, posterImage: Data?) {
         self.init()
-        self.id.value = id
-        self.name = name
+        self.movie = movie
+        self.id.value = movie?.id.value
+        self.posterImage = posterImage
     }
     
     convenience required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let id = try container.decodeIfPresent(Int.self, forKey: .id)
-        let name = try container.decodeIfPresent(String.self, forKey: .name)
+        let movie = try container.decodeIfPresent(Movie.self, forKey: .movie)
+        let posterImage = try container.decodeIfPresent(Data.self, forKey: .posterImage)
         
-        self.init(id: id, name: name)
+        self.init(movie: movie, posterImage: posterImage)
     }
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id.value, forKey: .id)
-        try container.encode(name, forKey: .name)
+        try container.encode(movie, forKey: .movie)
+        try container.encode(posterImage, forKey: .posterImage)
     }
     
     required init(realm: RLMRealm, schema: RLMObjectSchema) {

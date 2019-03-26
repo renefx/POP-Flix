@@ -20,7 +20,7 @@ class MovieDetailPresenter {
     private var maxMoviesMoreLikeThis = 8
     private var service = ServiceConnection()
     private var movie: Movie?
-    private var similarMovies:[Movie]?
+    private var similarMovies: [Movie] = []
     
     init(_ movie: Movie? = nil) {
         self.movie = movie
@@ -60,7 +60,6 @@ class MovieDetailPresenter {
     
     public var numbersOfSimilarMovies: Int {
         get {
-            guard let similarMovies = similarMovies else { return 0 }
             return similarMovies.count <= maxMoviesMoreLikeThis ? similarMovies.count : maxMoviesMoreLikeThis
         }
     }
@@ -81,8 +80,7 @@ class MovieDetailPresenter {
     }
     
     public func posterForCellAt(_ row: Int) -> Data? {
-        guard let similarMovies = similarMovies,
-            row < similarMovies.count,
+        guard row < similarMovies.count,
             let posterPath = similarMovies[row].posterPath else {
                 return nil
         }
@@ -90,8 +88,7 @@ class MovieDetailPresenter {
     }
     
     public func movie(atIndex row: Int) -> Movie? {
-        guard let similarMovies = similarMovies,
-            row < similarMovies.count else {
+        guard row < similarMovies.count else {
                 return nil
         }
         return similarMovies[row]
@@ -109,7 +106,7 @@ class MovieDetailPresenter {
     
     // MARK: - Request
     func searchForMovie() {
-        guard let id = movie?.id else { return }
+        guard let id = movie?.id.value else { return }
         guard Connectivity.isConnectedToInternet() else {
             self.movie = nil
             delegate?.movieFound(.noInternet)
@@ -117,15 +114,14 @@ class MovieDetailPresenter {
         }
         
         let url = ServiceConnection.urlMovie(id)
-        service.makeHTTPGetRequest(url, Movie.self) { movie in
+        service.makeHTTPGetRequest(url, Movie.self) { (movie, error) in
             self.movie = movie
-            let response: RequestErrors? = movie != nil ? nil : .unexpectedError
-            self.delegate?.movieFound(response)
+            self.delegate?.movieFound(error)
         }
     }
     
     func searchForRelatedMovies() {
-        guard let id = movie?.id else { return }
+        guard let id = movie?.id.value else { return }
         guard Connectivity.isConnectedToInternet() else {
             self.movie = nil
             delegate?.similarMoviesFound(.noInternet)
@@ -133,10 +129,9 @@ class MovieDetailPresenter {
         }
         
         let url = ServiceConnection.urlSimilarMovies(id)
-        service.makeHTTPGetRequest(url, MovieList.self) { similarMovies in
-            self.similarMovies = similarMovies?.list
-            let response: RequestErrors? = similarMovies != nil ? nil : .unexpectedError
-            self.delegate?.similarMoviesFound(response)
+        service.makeHTTPGetRequest(url, MovieList.self) { (similarMovies, error) in
+            self.similarMovies = similarMovies?.list ?? []
+            self.delegate?.similarMoviesFound(error)
         }
     }
 }

@@ -11,6 +11,7 @@
 		D6A4792622497845008733C6 /* Genre.json in Resources */ = {isa = PBXBuildFile; fileRef = D6A4792422497845008733C6 /* Genre.json */; };
 		D6A4792722497845008733C6 /* MovieDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = D6A4792522497845008733C6 /* MovieDetail.json */; };
 		EE9FA58741129C1B242AA13A /* Pods_POP_FlixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BEE168229A8C7342AA4B8F /* Pods_POP_FlixTests.framework */; };
+		F5115ABA2249ACF900E4FE2A /* FavoriteMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5115AB92249ACF900E4FE2A /* FavoriteMovies.swift */; };
 		F5503E722247EF8B009C3496 /* LauncherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5503E712247EF8B009C3496 /* LauncherViewController.swift */; };
 		F5503E8522480C4E009C3496 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5503E7E22480C4D009C3496 /* Montserrat-ExtraLight.ttf */; };
 		F5503E8622480C4E009C3496 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5503E7F22480C4D009C3496 /* Montserrat-Thin.ttf */; };
@@ -69,6 +70,7 @@
 		C5BEE168229A8C7342AA4B8F /* Pods_POP_FlixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POP_FlixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A4792422497845008733C6 /* Genre.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Genre.json; sourceTree = "<group>"; };
 		D6A4792522497845008733C6 /* MovieDetail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MovieDetail.json; sourceTree = "<group>"; };
+		F5115AB92249ACF900E4FE2A /* FavoriteMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovies.swift; sourceTree = "<group>"; };
 		F5503E712247EF8B009C3496 /* LauncherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherViewController.swift; sourceTree = "<group>"; };
 		F5503E7E22480C4D009C3496 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		F5503E7F22480C4D009C3496 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				F5503EA22248407A009C3496 /* SimilarMovies.swift */,
 				F5503E9B2248201F009C3496 /* Movie.swift */,
 				F5503E9E224825A0009C3496 /* Genres.swift */,
+				F5115AB92249ACF900E4FE2A /* FavoriteMovies.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				F5503EA5224857AC009C3496 /* MovieListPresenter.swift in Sources */,
 				F578247122472A5800A08D86 /* UIColorExtension.swift in Sources */,
 				F5FD39DF224723D70041AEF6 /* BigPosterViewController.swift in Sources */,
+				F5115ABA2249ACF900E4FE2A /* FavoriteMovies.swift in Sources */,
 				F5503E9A22481EB5009C3496 /* ServiceConnection.swift in Sources */,
 				F5FD39DD22471E260041AEF6 /* MoviesPageViewController.swift in Sources */,
 				F5503E722247EF8B009C3496 /* LauncherViewController.swift in Sources */,
@@ -733,13 +737,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 65RHQD8QXH;
+				DEVELOPMENT_TEAM = K3SMJ6ES47;
 				INFOPLIST_FILE = "POP Flix/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.renefx.POP-Flix1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.renefx.POP-Flix";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -752,13 +756,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 65RHQD8QXH;
+				DEVELOPMENT_TEAM = K3SMJ6ES47;
 				INFOPLIST_FILE = "POP Flix/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.renefx.POP-Flix1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.renefx.POP-Flix";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -26,53 +26,10 @@ class MovieListPresenter {
     // MARK: - Variables
     weak var delegate: MovieListPresenterDelegate?
     private var service = ServiceConnection()
-    private var latestMovies:[Movie]?
+    private var latestMovies: [Movie] = []
     private var moviesDownloaded:[[Movie]?] = []
     private var latestMoviesImages:[(Data?, String?)] = []
     private var sectionNames = ["Latest","Now Playing","Popular","Top Rated","Upcoming"]
-    
-//    var movieID: Int?
-//    private var maxMoviesMoreLikeThis = 8
-//    private var movie: Movie?
-    
-//    public var movieTitle: String? {
-//        get { return movie?.title }
-//    }
-//
-//    public var movieInfo: String? {
-//        get {
-//            guard let movie = movie else {
-//                return nil
-//            }
-//            return movie.voteAverageFull + movie.runtimeFull + movie.yearReleased
-//        }
-//    }
-//
-//    public var movieTagline: String? {
-//        get { return movie?.tagline }
-//    }
-//
-//    public var movieDescription: String? {
-//        get { return movie?.description }
-//    }
-//
-//    public var movieGenres: String? {
-//        get { return movie?.genresFull }
-//    }
-//
-//    public var moviePoster: Data? {
-//        get {
-//            guard let posterPath = movie?.posterPath else { return nil }
-//            return imageDataForPath(posterPath)
-//        }
-//    }
-//
-//    var numbersOfSimilarMovies: Int {
-//        get {
-//            guard let similarMovies = latestMovies else { return 0 }
-//            return similarMovies.count <= maxMoviesMoreLikeThis ? similarMovies.count : maxMoviesMoreLikeThis
-//        }
-//    }
     
     func titleForSection(_ row: Int) -> String {
         guard row < sectionNames.count else {
@@ -87,31 +44,28 @@ class MovieListPresenter {
         }
         switch section {
         case 0:
-            return latestMovies?.count ?? 0
+            return latestMovies.count
         default:
             return 0
         }
     }
     
     func posterForCellAt(_ row: Int) -> Data? {
-        guard let similarMovies = latestMovies,
-            row < similarMovies.count,
-            let posterPath = similarMovies[row].posterPath else {
+        guard row < latestMovies.count,
+            let posterPath = latestMovies[row].posterPath else {
                 return nil
         }
         return imageDataForPath(posterPath)
     }
     
     func movieToHeader(atIndex row: Int) -> Movie? {
-        guard let latestMovies = latestMovies,
-            row < latestMovies.count else {
+        guard row < latestMovies.count else {
                 return nil
         }
         return latestMovies[row]
     }
     
     func moviesToHeader() -> [(Data?, String?)] {
-        guard let latestMovies = latestMovies else { return [] }
         return latestMovies.map({
             guard let backdropPath = $0.backdropPath else {
                 return (nil, $0.title)
@@ -133,7 +87,8 @@ class MovieListPresenter {
     func getMovieSelectedFor(_ indexPathSelected: IndexPath) -> Movie? {
         switch indexPathSelected.section {
         case SectionNames.latest.rawValue:
-            return latestMovies?[indexPathSelected.row]
+            if indexPathSelected.row >= latestMovies.count { return nil }
+            return latestMovies[indexPathSelected.row]
         case SectionNames.now.rawValue:
             
             break
@@ -176,7 +131,6 @@ class MovieListPresenter {
     
     // MARK: - Latest Movies Collection
     func getLatestMoviesSmallPosters() -> [(Data?, String?)] {
-        guard let latestMovies = latestMovies else { return [] }
         self.latestMoviesImages = latestMovies.map({
             guard let backdropPath = $0.posterPath else {
                 return (nil, $0.title)
@@ -197,16 +151,15 @@ class MovieListPresenter {
     
     func searchForLatestMovies() {
         guard Connectivity.isConnectedToInternet() else {
-            self.latestMovies = nil
+            self.latestMovies = []
             delegate?.latestMoviesFound(.noInternet)
             return
         }
         
         let url = ServiceConnection.urlLatestMovies()
-        service.makeHTTPGetRequest(url, MovieList.self) { latestMovies in
-            self.latestMovies = latestMovies?.list
-            let response: RequestErrors? = latestMovies != nil ? nil : .unexpectedError
-            self.delegate?.latestMoviesFound(response)
+        service.makeHTTPGetRequest(url, MovieList.self) { (latestMovies, error) in
+            self.latestMovies = latestMovies?.list ?? []
+            self.delegate?.latestMoviesFound(error)
         }
     }
 }

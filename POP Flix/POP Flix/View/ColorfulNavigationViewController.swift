@@ -18,7 +18,7 @@ class ColorfulNavigationViewController: UINavigationController {
     }
     
     func setNavigationBarFont() {
-        if let font = UIFont(name: "Montserrat-Medium", size: 16) {
+        if let font = UIFont(name: Font.fontMedium, size: 16) {
             let attributes = [NSAttributedString.Key.font: font]
             self.navigationBar.titleTextAttributes = attributes
         }
