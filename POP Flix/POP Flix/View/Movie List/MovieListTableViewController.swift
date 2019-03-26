@@ -18,7 +18,7 @@ class MovieListTableViewController: UITableViewController {
     
     private var presenter = MovieListPresenter()
     private let headerHeight: CGFloat = 45
-    private let weatherRefreshControl = UIRefreshControl()
+    private let moviesRefreshControl = UIRefreshControl()
     private var collectionViews: [MovieListSectionCollectionView] = []
     var firstHeaderHeight: CGFloat {
         get {
@@ -31,16 +31,26 @@ class MovieListTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.tableView.tableHeaderView = pagesContainerView
-        
+        configureRefreshControl()
+        moviesRefreshData()
         presenter.delegate = self
         self.navigationItem.title = General.appName
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        presenter.searchForLatestMovies()
         setHeaderLoading(true)
         self.tableView.tableHeaderView?.popUp()
+    }
+    
+    // MARK: - Refresh Control
+    func configureRefreshControl() {
+        self.refreshControl = moviesRefreshControl
+        moviesRefreshControl.addTarget(self, action: #selector(moviesRefreshData(_:)), for: .valueChanged)
+    }
+    
+    @objc func moviesRefreshData(_ sender: Any? = nil) {
+        presenter.searchForLatestMovies()
     }
 
     // MARK: - Table view data source
@@ -175,6 +185,9 @@ extension MovieListTableViewController: MovieListPresenterDelegate {
             presenter.getLatestMoviesSmallPosters()
             collectionViews.first?.reloadData()
             headerPageVC.isLoading = false
+        }
+        DispatchQueue.main.async {
+            self.moviesRefreshControl.endRefreshing()
         }
     }
     

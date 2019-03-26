@@ -158,6 +158,7 @@ class MovieListPresenter {
     // MARK: - Request
     
     func searchForLatestMovies() {
+//        let lastUpadte = UserDefaults.string(UserDefaultKeys.lastUpdateLatestRelease)
         guard Connectivity.isConnectedToInternet() else {
             self.latestMovies = []
             connectionErrors[SectionNames.latest.rawValue] = true

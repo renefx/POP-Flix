@@ -173,6 +173,14 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		D6C6ABB6224A88C20006EE69 /* Search Tab */ = {
+			isa = PBXGroup;
+			children = (
+				F5C515CD224A1F77000A9BD8 /* SearchMoviesTableViewController.swift */,
+			);
+			path = "Search Tab";
+			sourceTree = "<group>";
+		};
 		F5503E752247F799009C3496 /* Movie Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,10 +332,10 @@
 		F5FD39C52246CAA90041AEF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F5C515CD224A1F77000A9BD8 /* SearchMoviesTableViewController.swift */,
 				F5503E712247EF8B009C3496 /* LauncherViewController.swift */,
 				F5FD39D7224711310041AEF6 /* ColorfulLine.swift */,
 				F57824792247502900A08D86 /* ColorfulNavigationViewController.swift */,
+				D6C6ABB6224A88C20006EE69 /* Search Tab */,
 				F5503E762247FA94009C3496 /* Cell Movie Collection */,
 				F5FD39DB224715BB0041AEF6 /* Movie List */,
 				F5503E752247F799009C3496 /* Movie Detail */,

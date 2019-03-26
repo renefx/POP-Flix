@@ -20,6 +20,7 @@ struct General {
     static let dateRegex = "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$"
     static let genresText = "Genres: "
     static let movieText = "Movie"
+    static let queueName = "com.renefx"
 }
 
 struct ShareMessages {
@@ -107,5 +108,6 @@ struct Language {
 }
 
 struct UserDefaultKeys {
+    static let lastUpdateLatestRelease = "lastUpdateLatestRelease"
 }
 
