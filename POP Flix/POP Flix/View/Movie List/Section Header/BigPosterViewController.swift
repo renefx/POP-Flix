@@ -23,6 +23,7 @@ class BigPosterViewController: UIViewController {
     var delegate: BigPosterViewControllerDelegate?
     var isLoading: Bool = false
     var colorPrimary: UIColor?
+    var colorDetail: UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class BigPosterViewController: UIViewController {
         if let data = imageData, let headerImage = UIImage(data: data) {
             poster.image = headerImage
             if let colors = headerImage.getColors() {
+                
                 let gradientMaskLayer:CAGradientLayer = CAGradientLayer()
                 let frame = CGRect(x: 0, y: 0, width: self.screenWidth, height: gradient.frame.height)
                 gradientMaskLayer.frame = frame
@@ -38,8 +40,10 @@ class BigPosterViewController: UIViewController {
                 gradientMaskLayer.locations = [0.0, 0.4]
                 gradient.layer.mask = gradientMaskLayer
                 gradient.backgroundColor = colors.primary.withAlphaComponent(0.80)
-                movieTitle.textColor = colors.primary.inverse()
                 colorPrimary = colors.primary
+                let colorForTexts = colors.background
+                movieTitle.textColor = colorForTexts
+                colorDetail = colorForTexts
             }
         }
     }

@@ -8,6 +8,8 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
+import UIImageColors
 
 protocol MovieDetailPresenterelegate: AnyObject {
     func movieFound(_ error: RequestErrors?)
@@ -20,12 +22,16 @@ class MovieDetailPresenter {
     private var maxMoviesMoreLikeThis = 8
     private var service = ServiceConnection()
     private var movie: Movie?
+    private var moviePoster: Data?
     private var similarMovies: [Movie] = []
+    private var realm: Realm?
     
     init(_ movie: Movie? = nil) {
         self.movie = movie
+        realm = try! Realm()
     }
     
+    // MARK: - Computed Variables
     public var movieTitle: String? {
         get { return movie?.title }
     }
@@ -44,18 +50,11 @@ class MovieDetailPresenter {
     }
     
     public var movieDescription: String? {
-        get { return movie?.description }
+        get { return movie?.movieDescription }
     }
     
     public var movieGenres: String? {
         get { return movie?.genresFull }
-    }
-    
-    public var moviePoster: Data? {
-        get {
-            guard let posterPath = movie?.posterPath else { return nil }
-            return imageDataForPath(posterPath)
-        }
     }
     
     public var numbersOfSimilarMovies: Int {
@@ -64,6 +63,15 @@ class MovieDetailPresenter {
         }
     }
     
+    // MARK: - Navigation
+    public func movie(atIndex row: Int) -> Movie? {
+        guard row < similarMovies.count else {
+            return nil
+        }
+        return similarMovies[row]
+    }
+    
+    // MARK: - Share Movie
     public var shareMessage: String? {
         get {
             guard let title = movie?.title else { return nil}
@@ -79,19 +87,75 @@ class MovieDetailPresenter {
         }
     }
     
+    // MARK: - Save Favorite Movie
+    public func deleteFavoriteMovie(onCompletion: (Bool) ->(Void)) {
+        do {
+            guard let favoriteMovie: FavoriteMovies = isMovieFavorite(),
+                let realm = realm else {
+                onCompletion(false)
+                return
+            }
+            try realm.write {
+                realm.delete(favoriteMovie)
+            }
+            onCompletion(true)
+        } catch {
+            onCompletion(false)
+            return
+        }
+    }
+    
+    public func saveAsFavoriteMovie(onCompletion: (Bool) ->(Void)) {
+        guard let movie = movie,
+            let moviePoster = moviePoster,
+            !isMovieFavorite() else {
+                
+                onCompletion(false)
+                return
+        }
+        
+        do {
+            if let image = UIImage(data: moviePoster),
+                let colors = image.getColors() {
+                
+                let favoriteMovie = FavoriteMovies(movie: movie, posterImage: moviePoster, colorPrimary: colors.primary.toHexString, colorSecondary: colors.secondary.toHexString, colorDetail: colors.detail.toHexString, colorBackground: colors.background.toHexString)
+                try realm?.write {
+                    realm?.add(favoriteMovie, update: true)
+                }
+                onCompletion(true)
+            } else {
+                onCompletion(false)
+            }
+        } catch {
+            onCompletion(false)
+            return
+        }
+    }
+    
+    func isMovieFavorite() -> Bool {
+        let movie: FavoriteMovies? = isMovieFavorite()
+        return movie != nil
+    }
+    
+    private func isMovieFavorite() -> FavoriteMovies? {
+        let favorites = realm?.objects(FavoriteMovies.self)
+        return favorites?.filter{ $0.id.value == self.movie?.id.value }.first
+    }
+    
+    // MARK: - Image for poster
+    public func getMoviePoster() -> Data? {
+        guard let posterPath = movie?.posterPath else { return nil }
+        if self.moviePoster != nil { return self.moviePoster }
+        self.moviePoster = imageDataForPath(posterPath)
+        return self.moviePoster
+    }
+    
     public func posterForCellAt(_ row: Int) -> Data? {
         guard row < similarMovies.count,
             let posterPath = similarMovies[row].posterPath else {
                 return nil
         }
         return imageDataForPath(posterPath)
-    }
-    
-    public func movie(atIndex row: Int) -> Movie? {
-        guard row < similarMovies.count else {
-                return nil
-        }
-        return similarMovies[row]
     }
     
     private func imageDataForPath(_ posterPath: String, size: ImageSize = ImageSize.poster) -> Data? {
@@ -107,6 +171,13 @@ class MovieDetailPresenter {
     // MARK: - Request
     func searchForMovie() {
         guard let id = movie?.id.value else { return }
+        let favoriteMovie:FavoriteMovies? = isMovieFavorite()
+        if let favoriteMovie = favoriteMovie {
+            self.movie = favoriteMovie.movie
+            self.delegate?.movieFound(nil)
+            return
+        }
+        
         guard Connectivity.isConnectedToInternet() else {
             self.movie = nil
             delegate?.movieFound(.noInternet)

@@ -8,21 +8,25 @@
 
 import UIKit
 import UIImageColors
+import ARSLineProgress
 
 class MovieListTableViewController: UITableViewController {
     @IBOutlet var pagesContainerView: UIView!
-    var presenter = MovieListPresenter()
+    @IBOutlet var errorHeaderView: UIView!
+    @IBOutlet weak var erroHeaderImage: UIImageView!
+    @IBOutlet weak var errorHeaderText: UILabel!
+    
+    private var presenter = MovieListPresenter()
     private let headerHeight: CGFloat = 45
-    var collectionViews: [MovieListSectionCollectionView] = []
-    let posters = ["poster", "poster", "poster", "poster", "poster", "poster", "poster"]
-    
-    
+    private let weatherRefreshControl = UIRefreshControl()
+    private var collectionViews: [MovieListSectionCollectionView] = []
     var firstHeaderHeight: CGFloat {
         get {
             return self.screenHeight * 0.4
         }
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -56,12 +60,10 @@ class MovieListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let title = presenter.titleForSection(section)
         return MovieListSectionHeader(width: tableView.frame.width, height: headerHeight, title: title)
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.movieList, for: indexPath)
-        
         if let cell = cell as? MovieListTableViewCell {
             cell.setCollectionViewProtocolResponder(self, indexPath.section)
             cell.section = indexPath.section
@@ -70,21 +72,19 @@ class MovieListTableViewController: UITableViewController {
         return cell
     }
 
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.destination {
-        case let moviePageViewController as MoviesPageViewController:
+        if let moviePageViewController = segue.destination as? MoviesPageViewController {
             moviePageViewController.delegateMovie = self
             moviePageViewController.movies = presenter.moviesToHeader()
             moviePageViewController.frameLoading = pagesContainerView.frame
-            break
-        default:
-            break
         }
     }
 }
 
 extension MovieListTableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    // MARK: - Collection Lists Of Movies Delegate & DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let collection = collectionView as? MovieListSectionCollectionView, let sectionCollection = collection.section {
             return presenter.numberOfCellForSection(sectionCollection)
@@ -93,8 +93,7 @@ extension MovieListTableViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let reuseIdentifierCollectionCell = CellIdentifier.poster
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierCollectionCell, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.poster, for: indexPath)
         if let cell = cell as? PosterCollectionViewCell,
             let collectionView = collectionView as? MovieListSectionCollectionView,
             let section = collectionView.section {
@@ -106,9 +105,11 @@ extension MovieListTableViewController: UICollectionViewDelegate, UICollectionVi
                 cell.posterImage.image = UIImage(data: data)
             }
         }
+        cell.popUp()
         return cell
     }
     
+    // MARK: - Collection Of Movies Navigation
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? PosterCollectionViewCell,
             let indexPath = cell.index,
@@ -121,19 +122,11 @@ extension MovieListTableViewController: UICollectionViewDelegate, UICollectionVi
     }
 }
 
+// MARK: - Header Delegate
 extension MovieListTableViewController: MoviesPageViewControllerDelegate {
-    func changedColor(_ color: UIColor) {
+    func changedColor(_ color: UIColor, _ detail: UIColor) {
         self.setNavBarBackgroundColor(color)
-        self.setNavBarTitleItemsColor(color.inverse())
-    }
-    
-    func selectedMovie(_ index: Int) {
-        print(index)
-        if let detailVC = storyboard?.instantiateViewController(withIdentifier: StoryboardID.movieDetail) as? MovieDetailTableViewController {
-            stopScroll()
-            detailVC.movie = presenter.movieToHeader(atIndex: index)
-            self.navigationController?.pushViewController(detailVC, animated: true)
-        }
+        self.setNavBarTitleItemsColor(detail)
     }
     
     func setHeaderLoading(_ isLoading: Bool) {
@@ -147,18 +140,33 @@ extension MovieListTableViewController: MoviesPageViewControllerDelegate {
             headerPageVC.stopScroll()
         }
     }
+    
+    // MARK: - Header Navigation
+    func selectedMovie(_ index: Int) {
+        if let detailVC = storyboard?.instantiateViewController(withIdentifier: StoryboardID.movieDetail) as? MovieDetailTableViewController {
+            stopScroll()
+            detailVC.movie = presenter.movieToHeader(atIndex: index)
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
 }
 
+// MARK: - Presenter Delegate
 extension MovieListTableViewController: MovieListPresenterDelegate {
     func movieFound(_ error: RequestErrors?) {
         if let error = error, error == .noInternet {
             return
         }
-        
     }
 
     func latestMoviesFound(_ error: RequestErrors?) {
         if let error = error {
+            let imageNamed = error == .noInternet ? General.noWifiImage : General.reloadImage
+            let errorText = error == .noInternet ? ErrorMessages.noInternet : ErrorMessages.unexpectedError
+            erroHeaderImage.image = UIImage(named: imageNamed)
+            errorHeaderText.text = errorText
+            self.tableView.tableHeaderView = errorHeaderView
+            collectionViews.first?.reloadData()
             setHeaderLoading(false)
             return
         }
@@ -166,8 +174,8 @@ extension MovieListTableViewController: MovieListPresenterDelegate {
             headerPageVC.movies = presenter.moviesToHeader()
             presenter.getLatestMoviesSmallPosters()
             collectionViews.first?.reloadData()
+            headerPageVC.isLoading = false
         }
-        setHeaderLoading(false)
     }
     
 }

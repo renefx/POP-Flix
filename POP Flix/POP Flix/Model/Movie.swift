@@ -122,7 +122,7 @@ public class Movie: Object, Codable {
         self.backdropPath = backdropPath
         self.revenue.value = revenue
         self.voteCount.value = voteCount
-        self.movieDescription = description
+        self.movieDescription = movieDescription
         self.voteAverage.value = voteAverage
         self.video.value = video
         self.imdbId = imdbId
@@ -157,8 +157,8 @@ public class Movie: Object, Codable {
         if let genresDecoded = try container.decodeIfPresent([Genres].self, forKey: .genres) {
             let genresNames = genresDecoded.map{ $0.name }
             genres = genresNames.reduce("") { (subtotal, genre) in
-                guard let subtotal = subtotal else { return genre }
-                guard let genre = genre else { return subtotal }
+                guard let subtotal = subtotal, subtotal != ""  else { return genre }
+                guard let genre = genre, genre != "" else { return subtotal }
                 return subtotal + ", " + genre
             }
         }

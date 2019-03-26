@@ -26,4 +26,17 @@ extension UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: color]
         self.navigationController?.navigationBar.tintColor = color
     }
+    
+    func createActivityIndicatory(uiView: UIView, frame: CGRect, color: UIColor = Color.secondary) -> UIActivityIndicatorView {
+        
+        let activityView = UIActivityIndicatorView(style: .whiteLarge)
+        activityView.frame = frame
+        activityView.center = self.view.center
+        activityView.color = color
+        activityView.startAnimating()
+        
+        self.view.addSubview(activityView)
+        activityView.startAnimating()
+        return activityView
+    }
 }

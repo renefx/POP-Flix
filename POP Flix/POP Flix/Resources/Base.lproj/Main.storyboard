@@ -58,7 +58,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="128"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="pmx-2z-11G">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="errorCell" translatesAutoresizingMaskIntoConstraints="NO" id="pmx-2z-11G">
                                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="128"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <gestureRecognizers/>
@@ -102,10 +102,41 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="S9i-QN-SWA"/>
                     <connections>
+                        <outlet property="erroHeaderImage" destination="akA-B6-1YG" id="SlR-uh-I1D"/>
+                        <outlet property="errorHeaderText" destination="bcz-11-BAc" id="KMG-BV-ibp"/>
+                        <outlet property="errorHeaderView" destination="HBX-4x-d5E" id="whX-el-I06"/>
                         <outlet property="pagesContainerView" destination="h0J-Ds-JOk" id="83f-Y4-Z2k"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8U-Bj-pFy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="HBX-4x-d5E">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="254"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-wifi" translatesAutoresizingMaskIntoConstraints="NO" id="akA-B6-1YG">
+                            <rect key="frame" x="16" y="16" width="343" height="152.5"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check Your Internet Connection" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-11-BAc">
+                            <rect key="frame" x="16" y="180.5" width="343" height="67.5"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="27"/>
+                            <color key="textColor" red="0.18240925669670105" green="0.56998509168624878" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="akA-B6-1YG" firstAttribute="height" secondItem="HBX-4x-d5E" secondAttribute="height" multiplier="60:100" id="3l2-rx-iaD"/>
+                        <constraint firstItem="L1q-Gb-1hf" firstAttribute="bottom" secondItem="bcz-11-BAc" secondAttribute="bottom" constant="6" id="8wo-tt-fgt"/>
+                        <constraint firstItem="akA-B6-1YG" firstAttribute="centerX" secondItem="HBX-4x-d5E" secondAttribute="centerX" id="9GF-wB-dkz"/>
+                        <constraint firstItem="akA-B6-1YG" firstAttribute="leading" secondItem="L1q-Gb-1hf" secondAttribute="leading" constant="16" id="Zn3-8S-FdA"/>
+                        <constraint firstItem="L1q-Gb-1hf" firstAttribute="trailing" secondItem="bcz-11-BAc" secondAttribute="trailing" constant="16" id="hAy-kD-EaS"/>
+                        <constraint firstItem="L1q-Gb-1hf" firstAttribute="trailing" secondItem="akA-B6-1YG" secondAttribute="trailing" constant="16" id="he5-Un-tn9"/>
+                        <constraint firstItem="akA-B6-1YG" firstAttribute="top" secondItem="L1q-Gb-1hf" secondAttribute="top" constant="16" id="iiW-nv-biE"/>
+                        <constraint firstItem="bcz-11-BAc" firstAttribute="leading" secondItem="L1q-Gb-1hf" secondAttribute="leading" constant="16" id="tMX-l3-wet"/>
+                        <constraint firstItem="bcz-11-BAc" firstAttribute="top" secondItem="akA-B6-1YG" secondAttribute="bottom" constant="12" id="vZs-K2-jzB"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="L1q-Gb-1hf"/>
+                </view>
                 <containerView opaque="NO" contentMode="scaleToFill" id="h0J-Ds-JOk">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="254"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -134,7 +165,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="181"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LCV-wG-rFk">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="LCV-wG-rFk">
                                                     <rect key="frame" x="24" y="26.5" width="85" height="128"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <gestureRecognizers/>
@@ -143,13 +174,13 @@
                                                         <constraint firstAttribute="width" constant="85" id="l4p-xn-E2R"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Dragon" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9kW-gY-yWB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interstellar" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9kW-gY-yWB">
                                                     <rect key="frame" x="130" y="16" width="229" height="128"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="35"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="65"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xoa-vo-Uqb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.7 1h44m 2019" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xoa-vo-Uqb">
                                                     <rect key="frame" x="130" y="149" width="229" height="21"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -177,7 +208,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMo-Xs-jvW">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The friendship of a lifetime" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="WMo-Xs-jvW">
                                                     <rect key="frame" x="16" y="12" width="346" height="24"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -200,8 +231,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIa-eO-eFj">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIa-eO-eFj">
                                                     <rect key="frame" x="13" y="11" width="346" height="22"/>
+                                                    <string key="text">To save their Kingdom from an army of undead, a group of warriors must travel through the forbidden lands fighting the fearsome beasts that call The Dark Kingdom their home.</string>
                                                     <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -222,7 +254,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="hvq-gi-xUE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres: Animation, Family, Adventure" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="hvq-gi-xUE">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="21"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-ExtraLight" family="Montserrat" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -244,14 +276,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MORE LIKE THIS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60V-Zy-dEr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MORE LIKE THIS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60V-Zy-dEr">
                                                     <rect key="frame" x="16" y="11" width="343" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="60V-Zy-dEr" firstAttribute="leading" secondItem="GDm-lN-GhY" secondAttribute="leadingMargin" id="Hen-Ul-MP1"/>
+                                                <constraint firstItem="60V-Zy-dEr" firstAttribute="top" secondItem="GDm-lN-GhY" secondAttribute="topMargin" id="jEK-89-kSr"/>
+                                                <constraint firstItem="60V-Zy-dEr" firstAttribute="trailing" secondItem="GDm-lN-GhY" secondAttribute="trailingMargin" id="kBD-vn-zjf"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="60V-Zy-dEr" secondAttribute="bottom" constant="1" id="w0b-Jv-NNG"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="360" id="3CN-MA-Lhp" customClass="MovieListTableViewCell" customModule="POP_Flix" customModuleProvider="target">
@@ -350,7 +387,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrU-ob-D17" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2317.5999999999999" y="-448.42578710644682"/>
+            <point key="canvasLocation" x="2297" y="-448"/>
         </scene>
         <!--Launcher View Controller-->
         <scene sceneID="zb5-87-ghY">
@@ -393,6 +430,7 @@
                     <connections>
                         <segue destination="XIc-kp-GAT" kind="relationship" relationship="viewControllers" id="LSh-eZ-rmw"/>
                         <segue destination="oYd-sR-dbH" kind="relationship" relationship="viewControllers" id="tlY-H0-8ku"/>
+                        <segue destination="uah-zs-8Pv" kind="relationship" relationship="viewControllers" id="EZF-UR-Hh0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfL-Wi-2xg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -428,15 +466,78 @@
             </objects>
             <point key="canvasLocation" x="2298" y="-969"/>
         </scene>
-        <!--Movies Page View Controller-->
-        <scene sceneID="EFt-Rm-znp">
+        <!--Favorites-->
+        <scene sceneID="uPQ-Du-Ouf">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6il-u9-071" customClass="MoviesPageViewController" customModule="POP_Flix" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="hdg-cb-1op"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xZm-HH-die" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="WW1-bF-9DD" customClass="FavoritesTableViewController" customModule="POP_Flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="146" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="i5m-kf-CxA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="favoritesCell" id="4tk-fb-Xth" customClass="FavoritesTableViewCell" customModule="POP_Flix" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="146"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4tk-fb-Xth" id="ROq-1t-fVC">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="145.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any movie saved 🧐" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s3W-6o-7Hh">
+                                            <rect key="frame" x="105" y="9.5" width="258" height="97"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="65"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="errorCell" translatesAutoresizingMaskIntoConstraints="NO" id="nGm-lo-uG5">
+                                            <rect key="frame" x="12" y="9.5" width="85" height="128"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <gestureRecognizers/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="nGm-lo-uG5" secondAttribute="height" multiplier="85:128" id="2bI-uh-T53"/>
+                                                <constraint firstAttribute="height" constant="128" id="8tQ-u0-bcQ"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="hDl-rd-yJ1">
+                                            <rect key="frame" x="105" y="112.5" width="258" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="ChR-yZ-wsd"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="nGm-lo-uG5" firstAttribute="leading" secondItem="ROq-1t-fVC" secondAttribute="leading" constant="12" id="0Ct-FY-RZ2"/>
+                                        <constraint firstItem="hDl-rd-yJ1" firstAttribute="top" secondItem="s3W-6o-7Hh" secondAttribute="bottom" constant="6" id="0dZ-yk-mRb"/>
+                                        <constraint firstItem="hDl-rd-yJ1" firstAttribute="leading" secondItem="s3W-6o-7Hh" secondAttribute="leading" id="7Zp-wi-kGX"/>
+                                        <constraint firstItem="s3W-6o-7Hh" firstAttribute="leading" secondItem="nGm-lo-uG5" secondAttribute="trailing" constant="8" id="Abj-tb-o5s"/>
+                                        <constraint firstItem="nGm-lo-uG5" firstAttribute="top" secondItem="ROq-1t-fVC" secondAttribute="top" constant="9" id="Pbd-is-iWy"/>
+                                        <constraint firstItem="hDl-rd-yJ1" firstAttribute="trailing" secondItem="s3W-6o-7Hh" secondAttribute="trailing" id="VpZ-DR-avz"/>
+                                        <constraint firstAttribute="trailing" secondItem="s3W-6o-7Hh" secondAttribute="trailing" constant="12" id="Wyl-5D-tKi"/>
+                                        <constraint firstItem="s3W-6o-7Hh" firstAttribute="top" secondItem="nGm-lo-uG5" secondAttribute="top" id="au4-3i-urX"/>
+                                        <constraint firstItem="hDl-rd-yJ1" firstAttribute="bottom" secondItem="nGm-lo-uG5" secondAttribute="bottom" id="eey-p4-AhR"/>
+                                        <constraint firstAttribute="bottom" secondItem="nGm-lo-uG5" secondAttribute="bottom" constant="9" id="xn7-ep-Ncp"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieTagline" destination="hDl-rd-yJ1" id="3sh-lS-orI"/>
+                                    <outlet property="movieTitle" destination="s3W-6o-7Hh" id="Vk2-Q3-UAi"/>
+                                    <outlet property="posterImage" destination="nGm-lo-uG5" id="2Dq-o4-1x4"/>
+                                    <segue destination="ZpB-Yh-IbW" kind="show" id="rhB-tH-50r"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="WW1-bF-9DD" id="A29-Lv-8ew"/>
+                            <outlet property="delegate" destination="WW1-bF-9DD" id="3jK-wW-66k"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Favorites" id="Jtx-ep-V85"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xwH-QO-NtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486" y="218"/>
+            <point key="canvasLocation" x="1485.5999999999999" y="894.60269865067471"/>
         </scene>
         <!--Big Poster View Controller-->
         <scene sceneID="z6y-i8-ajd">
@@ -453,21 +554,13 @@
                                 <rect key="frame" x="0.0" y="127" width="375" height="127"/>
                                 <color key="backgroundColor" red="0.33725490200000002" green="0.72156862749999995" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="ER5-hZ-7LB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="ER5-hZ-7LB">
                                 <rect key="frame" x="56.5" y="165" width="262.5" height="89"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">A Terceira
+                                <string key="text">A Terceira
 Fronteira</string>
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" metaFont="system" size="33"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="48"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0I-cQ-ziq">
@@ -523,18 +616,128 @@ Fronteira</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="6il-u9-071" kind="relationship" relationship="rootViewController" id="PXz-ZT-bi7"/>
+                        <segue destination="H8j-lh-N23" kind="relationship" relationship="rootViewController" id="lFS-u2-mBM"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uf3-Tu-CP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="548" y="218.1409295352324"/>
         </scene>
+        <!--Search-->
+        <scene sceneID="atY-Bl-Ke9">
+            <objects>
+                <tableViewController id="H8j-lh-N23" customClass="SearchMoviesTableViewController" customModule="POP_Flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="146" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZfG-Xr-Itu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="2AA-zX-O0n">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="favoritesCell" id="rqq-E5-Oey" customClass="FavoritesTableViewCell" customModule="POP_Flix" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="146"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rqq-E5-Oey" id="nEi-xG-vhh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="145.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No movie found 🕵️‍♂️" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8c-Wz-wpO">
+                                            <rect key="frame" x="105" y="9.5" width="258" height="97"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="65"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="errorCell" translatesAutoresizingMaskIntoConstraints="NO" id="p0l-S3-m1w">
+                                            <rect key="frame" x="12" y="9.5" width="85" height="128"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <gestureRecognizers/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="p0l-S3-m1w" secondAttribute="height" multiplier="85:128" id="ddc-0Q-8zl"/>
+                                                <constraint firstAttribute="height" constant="128" id="gFG-Fd-SiJ"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8Wv-Hf-4PZ">
+                                            <rect key="frame" x="105" y="112.5" width="258" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="Qbb-Yf-0pR"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="8Wv-Hf-4PZ" firstAttribute="leading" secondItem="E8c-Wz-wpO" secondAttribute="leading" id="0hI-tV-Pdx"/>
+                                        <constraint firstAttribute="trailing" secondItem="E8c-Wz-wpO" secondAttribute="trailing" constant="12" id="3Bx-Dy-kjP"/>
+                                        <constraint firstItem="8Wv-Hf-4PZ" firstAttribute="trailing" secondItem="E8c-Wz-wpO" secondAttribute="trailing" id="746-IL-7v3"/>
+                                        <constraint firstItem="E8c-Wz-wpO" firstAttribute="top" secondItem="p0l-S3-m1w" secondAttribute="top" id="8hd-OB-IjM"/>
+                                        <constraint firstItem="p0l-S3-m1w" firstAttribute="leading" secondItem="nEi-xG-vhh" secondAttribute="leading" constant="12" id="TLC-Jv-nWc"/>
+                                        <constraint firstItem="8Wv-Hf-4PZ" firstAttribute="top" secondItem="E8c-Wz-wpO" secondAttribute="bottom" constant="6" id="U4e-ph-HrO"/>
+                                        <constraint firstItem="p0l-S3-m1w" firstAttribute="top" secondItem="nEi-xG-vhh" secondAttribute="top" constant="9" id="X1Z-FY-Qix"/>
+                                        <constraint firstItem="8Wv-Hf-4PZ" firstAttribute="bottom" secondItem="p0l-S3-m1w" secondAttribute="bottom" id="XGd-Ag-Pwq"/>
+                                        <constraint firstAttribute="bottom" secondItem="p0l-S3-m1w" secondAttribute="bottom" constant="9" id="wr2-qw-LmZ"/>
+                                        <constraint firstItem="E8c-Wz-wpO" firstAttribute="leading" secondItem="p0l-S3-m1w" secondAttribute="trailing" constant="8" id="yvu-Vc-7M9"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieTagline" destination="8Wv-Hf-4PZ" id="ZTU-Jk-qXx"/>
+                                    <outlet property="movieTitle" destination="E8c-Wz-wpO" id="ovB-HK-Vff"/>
+                                    <outlet property="posterImage" destination="p0l-S3-m1w" id="L4g-i8-0NS"/>
+                                    <segue destination="ZpB-Yh-IbW" kind="show" id="9Ik-xW-wrK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="H8j-lh-N23" id="kzH-Az-776"/>
+                            <outlet property="delegate" destination="H8j-lh-N23" id="HuP-eY-PU8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Search" id="otD-S4-qIk"/>
+                    <connections>
+                        <outlet property="searchBar" destination="2AA-zX-O0n" id="QTZ-yl-Gvu"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aMm-Ku-aAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchBar contentMode="redraw" id="dub-Tk-S1a">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+            </objects>
+            <point key="canvasLocation" x="1484" y="227"/>
+        </scene>
+        <!--Colorful Navigation View Controller-->
+        <scene sceneID="DvV-JG-ZbS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uah-zs-8Pv" customClass="ColorfulNavigationViewController" customModule="POP_Flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="hDZ-xr-aga"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QXE-YS-eMi">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WW1-bF-9DD" kind="relationship" relationship="rootViewController" id="wOP-CV-b1Z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DE8-tt-l7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="548" y="895"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="errorCell" width="185" height="278"/>
         <image name="header" width="2222" height="1248"/>
         <image name="logo" width="901" height="1284"/>
+        <image name="no-wifi" width="300" height="300"/>
         <image name="popcorn" width="43" height="60"/>
         <image name="poster" width="185" height="278"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9Ik-xW-wrK"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,7 @@
 
 import UIKit
 import UIImageColors
+import ARSLineProgress
 
 class MovieDetailTableViewController: UITableViewController {
     @IBOutlet weak var backgroundPosterView: UIView!
@@ -20,7 +21,7 @@ class MovieDetailTableViewController: UITableViewController {
     @IBOutlet weak var moreLikeThisCollection: MovieListSectionCollectionView!
     @IBOutlet weak var movieListTableViewCell: MovieListTableViewCell!
     
-    var presenter: MovieDetailPresenter?
+    private var presenter: MovieDetailPresenter?
     var movie: Movie?
     
     override func viewDidLoad() {
@@ -37,6 +38,20 @@ class MovieDetailTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureViews()
+        setNavBarButton()
+    }
+    
+    func setNavBarButton() {
+        guard let presenter = self.presenter else { return }
+        let button: UIBarButtonItem
+        if presenter.isMovieFavorite() {
+            button = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(removeFromFavoriteMovie))
+        } else {
+            button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAsFavoriteMovie(_:)))
+        }
+        if let shareButton = navigationItem.rightBarButtonItems?.last {
+            navigationItem.rightBarButtonItems = [button, shareButton]
+        }
     }
     
     @IBAction func shareMovie(_ sender: Any) {
@@ -49,7 +64,28 @@ class MovieDetailTableViewController: UITableViewController {
     }
     
     @IBAction func addAsFavoriteMovie(_ sender: Any) {
-        
+        if presenter?.isMovieFavorite() ?? true { return }
+        ARSLineProgress.show()
+        presenter?.saveAsFavoriteMovie(onCompletion: { (saved) -> (Void) in
+            if saved {
+                setNavBarButton()
+                ARSLineProgress.showSuccess()
+            } else {
+                ARSLineProgress.showFail()
+            }
+        })
+    }
+    
+    @objc func removeFromFavoriteMovie() {
+        ARSLineProgress.show()
+        presenter?.deleteFavoriteMovie(onCompletion: { (deleted) -> (Void) in
+            if deleted {
+                setNavBarButton()
+                ARSLineProgress.showSuccess()
+            } else {
+                ARSLineProgress.showFail()
+            }
+        })
     }
     
     func configureViews() {
@@ -60,7 +96,7 @@ class MovieDetailTableViewController: UITableViewController {
         self.movieTagline.text = presenter.movieTagline
         self.movieDescription.text = presenter.movieDescription
         self.movieGenres.text = presenter.movieGenres
-        if let data = presenter.moviePoster {
+        if let data = presenter.getMoviePoster() {
             self.posterImage.image = UIImage(data: data)
         }
         

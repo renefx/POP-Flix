@@ -1,5 +1,5 @@
 //
-//  SimilarMovies.swift
+//  MovieList.swift
 //  POP Flix
 //
 //  Created by Renê Xavier on 24/03/19.

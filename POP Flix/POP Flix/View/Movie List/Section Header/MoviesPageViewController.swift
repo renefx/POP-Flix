@@ -7,19 +7,18 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
 
 protocol MoviesPageViewControllerDelegate: AnyObject {
     func selectedMovie(_ index: Int)
-    func changedColor(_ color: UIColor)
+    func changedColor(_ color: UIColor, _ detail: UIColor)
 }
 
 class MoviesPageViewController: UIPageViewController {
     private var pages: [UIViewController] = []
     private var timer = Timer()
-    private var loading: NVActivityIndicatorView?
-    var frameLoading: CGRect?
-    var lastIndex = -1
+    private var lastIndex = -1
+    var frameLoading: CGRect = CGRect(origin: .zero, size: .zero)
+    var loading: UIActivityIndicatorView?
     
     weak var delegateMovie: MoviesPageViewControllerDelegate?
     var isLoading: Bool = false {
@@ -28,11 +27,9 @@ class MoviesPageViewController: UIPageViewController {
                 bigPosterVC.isLoading = isLoading
             }
             if(isLoading) {
-                loading?.startAnimating()
-                self.view.isUserInteractionEnabled = false
+                self.loading = self.createActivityIndicatory(uiView: self.view, frame: frameLoading)
             } else {
-                loading?.stopAnimating()
-                self.view.isUserInteractionEnabled = true
+                self.loading?.removeFromSuperview()
             }
         }
     }
@@ -66,7 +63,7 @@ class MoviesPageViewController: UIPageViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.dataSource = self
         self.delegate = self
-        createLoadingView()
+//        createLoadingView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,8 +83,9 @@ class MoviesPageViewController: UIPageViewController {
                            completion: nil)
         
         if let viewController = viewController as? BigPosterViewController,
-            let color = viewController.colorPrimary {
-            delegateMovie?.changedColor(color)
+            let color = viewController.colorPrimary,
+            let detail = viewController.colorDetail {
+            delegateMovie?.changedColor(color, detail)
         }
     }
     
@@ -96,17 +94,17 @@ class MoviesPageViewController: UIPageViewController {
         lastIndex = getCurrentIndex()
     }
     
-    func createLoadingView() {
-        if let frameLoading = frameLoading {
-            let frame = CGRect(x: 0,
-                               y: frameLoading.height/4,
-                               width: view.frame.width,
-                               height: frameLoading.height/2)
-            let loading = NVActivityIndicatorView(frame: frame, type: .circleStrokeSpin, color: Color.primary, padding: 0)
-            self.view.addSubview(loading)
-            self.loading = loading
-        }
-    }
+//    func createLoadingView() {
+//        if let frameLoading = frameLoading {
+//            let frame = CGRect(x: 0,
+//                               y: frameLoading.height/4,
+//                               width: view.frame.width,
+//                               height: frameLoading.height/2)
+//            let loading = NVActivityIndicatorView(frame: frame, type: .circleStrokeSpin, color: Color.primary, padding: 0)
+//            self.view.addSubview(loading)
+//            self.loading = loading
+//        }
+//    }
     
     func getCurrentIndex() -> Int {
         if lastIndex > 0 { return lastIndex }
@@ -132,8 +130,9 @@ extension MoviesPageViewController: BigPosterViewControllerDelegate {
 extension MoviesPageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if let bigPosterVC = pageViewController.viewControllers?.first as? BigPosterViewController,
-            let colorChanged = bigPosterVC.colorPrimary {
-            delegateMovie?.changedColor(colorChanged)
+            let colorPrimary = bigPosterVC.colorPrimary,
+            let colorDetail = bigPosterVC.colorDetail {
+            delegateMovie?.changedColor(colorPrimary, colorDetail)
         }
     }
     

@@ -72,13 +72,14 @@ extension UIColor {
 
 class Color {
     
-    static let primary = UIColor(hexString: "FFCC33")
-    static let secondary = UIColor(hexString: "2F91FF")
+    static let primary = UIColor(hexString: "2F91FF")
+    static let secondary = UIColor(hexString: "FFCC33")
     static let gray = UIColor(hexString: "E1E1E1")
     static let orangeShadow = UIColor(hexString: "FF8847")
     static let blueShadow = UIColor(hexString: "2F91FF")
     static let yellowShadow = UIColor(hexString: "FFCC33")
     static let redShadow = UIColor(hexString: "D73712")
+    static let black = "000000"
     
     
     

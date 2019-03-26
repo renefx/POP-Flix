@@ -29,19 +29,24 @@ class MovieListPresenter {
     private var latestMovies: [Movie] = []
     private var moviesDownloaded:[[Movie]?] = []
     private var latestMoviesImages:[(Data?, String?)] = []
-    private var sectionNames = ["Latest","Now Playing","Popular","Top Rated","Upcoming"]
+    private var sectionNames: [String] = []
+    private var connectionErrors: [Bool] = []
+    
+    init() {
+        sectionNames = ["Latest","Now Playing","Popular","Top Rated","Upcoming"]
+        connectionErrors = sectionNames.map { _ in return false }
+    }
     
     func titleForSection(_ row: Int) -> String {
         guard row < sectionNames.count else {
-            return sectionNames[0]
+            return General.none
         }
         return sectionNames[row]
     }
     
     func numberOfCellForSection(_ section: Int) -> Int {
-        guard section < sectionNames.count else {
-            return 0
-        }
+        if connectionErrors[section] { return 1 }
+        guard section < sectionNames.count else { return 0 }
         switch section {
         case 0:
             return latestMovies.count
@@ -108,6 +113,9 @@ class MovieListPresenter {
     }
     
     func getImageDataFor(_ indexPath: IndexPath) -> Data? {
+        if connectionErrors[indexPath.section] {
+            return UIImage(named: General.errorCellImage)?.pngData()
+        }
         switch indexPath.section {
         case SectionNames.latest.rawValue:
             return moviesPoster(latestMoviesImages, indexPath.row)
@@ -152,6 +160,7 @@ class MovieListPresenter {
     func searchForLatestMovies() {
         guard Connectivity.isConnectedToInternet() else {
             self.latestMovies = []
+            connectionErrors[SectionNames.latest.rawValue] = true
             delegate?.latestMoviesFound(.noInternet)
             return
         }
@@ -159,6 +168,7 @@ class MovieListPresenter {
         let url = ServiceConnection.urlLatestMovies()
         service.makeHTTPGetRequest(url, MovieList.self) { (latestMovies, error) in
             self.latestMovies = latestMovies?.list ?? []
+            self.connectionErrors[SectionNames.latest.rawValue] = error != nil
             self.delegate?.latestMoviesFound(error)
         }
     }

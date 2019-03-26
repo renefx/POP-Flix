@@ -15,6 +15,8 @@ struct General {
     static let dashCharacter: Character = "-"
     static let space = " "
     static let noWifiImage = "no-wifi"
+    static let reloadImage = "reload"
+    static let errorCellImage = "errorCell"
     static let dateRegex = "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$"
     static let genresText = "Genres: "
     static let movieText = "Movie"
@@ -37,10 +39,13 @@ struct Font {
 }
 
 struct ErrorMessages {
-    static let noInternet = "Check your Internet connection\nPull to refresh"
+    static let noInternet = "Check your Internet connection 🤷‍♂️"
+    static let noMovie = "No movie found 🕵️‍♂️"
     static let unexpectedError = "No data available\nPull to refresh"
     static let noInternetShort = "Check your Internet connection"
     static let unexpectedErrorShort = "No data available"
+    static let noFavorites = "You don't have any movie saved 🧐"
+    
 }
 
 enum RequestErrors: String {
@@ -80,6 +85,8 @@ struct CellIdentifier {
     static let movieList = "cellMovieListIdentifier"
     static let poster = "posterCellIdentifier"
     static let posterDetail = "posterDetailIdentifier"
+    static let favorites = "favoritesCell"
+    
 }
 
 enum ImageSize: String {
@@ -90,6 +97,7 @@ enum ImageSize: String {
 struct TheMovieDBAPI {
     static let urlImages = "https://image.tmdb.org/t/p/"
     static let urlMovie = "https://api.themoviedb.org/3/movie"
+    static let urlSearch = "https://api.themoviedb.org/3/search/movie"
     static let apiKey = "6302949d7afd94f9edd948caf36b33c2"
 }
 

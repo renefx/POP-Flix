@@ -37,8 +37,21 @@ class ServiceConnection {
             "/now_playing" +
             "?api_key=\(TheMovieDBAPI.apiKey)" +
             "&language=\(language)"  +
-//            "&region=BR" +
-            "&page=1"
+            //            "&region=BR" +
+        "&page=1"
+        return url
+    }
+    
+    static func urlSearchMovies(_ search: String) -> String {
+        guard let encoded = search.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            return General.none
+        }
+        let url = TheMovieDBAPI.urlSearch +
+            "?api_key=\(TheMovieDBAPI.apiKey)" +
+            "&language=\(language)"  +
+            "&query=\(encoded)"  +
+            "&page=1" +
+            "&include_adult=false"
         return url
     }
     
