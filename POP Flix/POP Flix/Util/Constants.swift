@@ -18,9 +18,12 @@ struct General {
     static let reloadImage = "reload"
     static let errorCellImage = "errorCell"
     static let dateRegex = "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$"
+    static let dateUserDefaultRegex = "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] [0-9][0-9]:[0-9][0-9]$"
+    static let dateUserDefaultFormat = "dd-MM-yyy HH:mm"
     static let genresText = "Genres: "
     static let movieText = "Movie"
     static let queueName = "com.renefx"
+    static let refreshTime = 5000
 }
 
 struct ShareMessages {

@@ -10,6 +10,8 @@
 		B85C664A292EB0DDA3A16DC8 /* Pods_POP_Flix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB0234B84CE3720416BD711 /* Pods_POP_Flix.framework */; };
 		D6A4792622497845008733C6 /* Genre.json in Resources */ = {isa = PBXBuildFile; fileRef = D6A4792422497845008733C6 /* Genre.json */; };
 		D6A4792722497845008733C6 /* MovieDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = D6A4792522497845008733C6 /* MovieDetail.json */; };
+		D6C6ABB8224A94E20006EE69 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6ABB7224A94E20006EE69 /* DateExtension.swift */; };
+		D6C6ABBA224A9B3A0006EE69 /* LatestMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6ABB9224A9B3A0006EE69 /* LatestMovies.swift */; };
 		EE9FA58741129C1B242AA13A /* Pods_POP_FlixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BEE168229A8C7342AA4B8F /* Pods_POP_FlixTests.framework */; };
 		F5115ABA2249ACF900E4FE2A /* FavoriteMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5115AB92249ACF900E4FE2A /* FavoriteMovies.swift */; };
 		F5115ABC224A021300E4FE2A /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5115ABB224A021300E4FE2A /* FavoritesTableViewController.swift */; };
@@ -75,6 +77,8 @@
 		C5BEE168229A8C7342AA4B8F /* Pods_POP_FlixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POP_FlixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A4792422497845008733C6 /* Genre.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Genre.json; sourceTree = "<group>"; };
 		D6A4792522497845008733C6 /* MovieDetail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MovieDetail.json; sourceTree = "<group>"; };
+		D6C6ABB7224A94E20006EE69 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		D6C6ABB9224A9B3A0006EE69 /* LatestMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMovies.swift; sourceTree = "<group>"; };
 		F5115AB92249ACF900E4FE2A /* FavoriteMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovies.swift; sourceTree = "<group>"; };
 		F5115ABB224A021300E4FE2A /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		F5115ABD224A022800E4FE2A /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 				F5503E9B2248201F009C3496 /* Movie.swift */,
 				F5503E9E224825A0009C3496 /* Genres.swift */,
 				F5115AB92249ACF900E4FE2A /* FavoriteMovies.swift */,
+				D6C6ABB9224A9B3A0006EE69 /* LatestMovies.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 				F5FD39CE2246F0BB0041AEF6 /* Constants.swift */,
 				F5FD39D12246F12B0041AEF6 /* ColorPalette.swift */,
 				F5503E97224818B9009C3496 /* Connectivity.swift */,
+				D6C6ABB7224A94E20006EE69 /* DateExtension.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -582,12 +588,14 @@
 				F5C515CE224A1F77000A9BD8 /* SearchMoviesTableViewController.swift in Sources */,
 				F5FD39DA2247129B0041AEF6 /* UIViewExtension.swift in Sources */,
 				F5FD39D62246F88E0041AEF6 /* PosterCollectionViewCell.swift in Sources */,
+				D6C6ABBA224A9B3A0006EE69 /* LatestMovies.swift in Sources */,
 				F5503E98224818B9009C3496 /* Connectivity.swift in Sources */,
 				F5115ABC224A021300E4FE2A /* FavoritesTableViewController.swift in Sources */,
 				F5FD39C72246CCD70041AEF6 /* MovieListTableViewController.swift in Sources */,
 				F5FD39D42246F1AC0041AEF6 /* UIViewControllerExtension.swift in Sources */,
 				F5FD39D22246F12B0041AEF6 /* ColorPalette.swift in Sources */,
 				F59898642246AD58006FE815 /* AppDelegate.swift in Sources */,
+				D6C6ABB8224A94E20006EE69 /* DateExtension.swift in Sources */,
 				F5503E95224815F4009C3496 /* MovieDetailPresenter.swift in Sources */,
 				F578247A2247502900A08D86 /* ColorfulNavigationViewController.swift in Sources */,
 				F5503EA5224857AC009C3496 /* MovieListPresenter.swift in Sources */,

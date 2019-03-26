@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 
 protocol MovieListPresenterDelegate: AnyObject {
     func movieFound(_ error: RequestErrors?)
@@ -31,8 +32,10 @@ class MovieListPresenter {
     private var latestMoviesImages:[(Data?, String?)] = []
     private var sectionNames: [String] = []
     private var connectionErrors: [Bool] = []
+    private var realm: Realm?
     
     init() {
+        realm = try! Realm()
         sectionNames = ["Latest","Now Playing","Popular","Top Rated","Upcoming"]
         connectionErrors = sectionNames.map { _ in return false }
     }
@@ -158,7 +161,19 @@ class MovieListPresenter {
     // MARK: - Request
     
     func searchForLatestMovies() {
-//        let lastUpadte = UserDefaults.string(UserDefaultKeys.lastUpdateLatestRelease)
+        let lessOneHour = Date().removeHour(numberOfHours: 1)
+        if let lastUpadte = UserDefaults.standard.string(forKey: UserDefaultKeys.lastUpdateLatestRelease),
+            let lastDateUpdated = lastUpadte.toDateUserDefault,
+            lastDateUpdated > lessOneHour {
+            
+            if let latestMoviesCache = realm?.objects(LatestMovies.self).first?.movies {
+                self.latestMovies = []
+                self.latestMovies.append(contentsOf: latestMoviesCache)
+                UserDefaults.standard.set(lastDateUpdated.toString(), forKey: UserDefaultKeys.lastUpdateLatestRelease)
+                delegate?.latestMoviesFound(nil)
+                return
+            }
+        }
         guard Connectivity.isConnectedToInternet() else {
             self.latestMovies = []
             connectionErrors[SectionNames.latest.rawValue] = true
@@ -170,6 +185,10 @@ class MovieListPresenter {
         service.makeHTTPGetRequest(url, MovieList.self) { (latestMovies, error) in
             self.latestMovies = latestMovies?.list ?? []
             self.connectionErrors[SectionNames.latest.rawValue] = error != nil
+            if !error {
+                let now = Date().toString()
+                UserDefaults.standard.set(now, forKey: UserDefaultKeys.lastUpdateLatestRelease)
+            }
             self.delegate?.latestMoviesFound(error)
         }
     }

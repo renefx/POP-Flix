@@ -32,14 +32,13 @@ class MovieListTableViewController: UITableViewController {
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.tableView.tableHeaderView = pagesContainerView
         configureRefreshControl()
-        moviesRefreshData()
         presenter.delegate = self
         self.navigationItem.title = General.appName
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setHeaderLoading(true)
+        moviesRefreshData()
         self.tableView.tableHeaderView?.popUp()
     }
     
@@ -50,6 +49,7 @@ class MovieListTableViewController: UITableViewController {
     }
     
     @objc func moviesRefreshData(_ sender: Any? = nil) {
+        setHeaderLoading(true)
         presenter.searchForLatestMovies()
     }
 
@@ -186,9 +186,8 @@ extension MovieListTableViewController: MovieListPresenterDelegate {
             collectionViews.first?.reloadData()
             headerPageVC.isLoading = false
         }
-        DispatchQueue.main.async {
-            self.moviesRefreshControl.endRefreshing()
-        }
+        self.moviesRefreshControl.endRefreshing()
+        
     }
     
 }

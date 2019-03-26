@@ -63,10 +63,15 @@ class ServiceConnection {
                 if let data = response.data {
                     do {
                         let object = try self.jsonDecoder.decode(type, from: data)
-                        onCompletion(object, nil)
+                        
+                        DispatchQueue.main.async {
+                            onCompletion(object, nil)
+                        }
                         return
                     } catch {
-                        onCompletion(nil, .unexpectedError)
+                        DispatchQueue.main.async {
+                            onCompletion(nil, .unexpectedError)
+                        }
                     }
                 }
         }
