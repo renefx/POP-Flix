@@ -2,17 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "popcorn.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "popcorn@2x.png",
+      "filename" : "popcorn.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "popcorn@3x.png",
+      "filename" : "popcorn-1.png",
       "scale" : "3x"
     }
   ],

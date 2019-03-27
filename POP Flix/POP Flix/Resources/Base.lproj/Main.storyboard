@@ -441,9 +441,7 @@
         <scene sceneID="3xT-13-3GH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XIc-kp-GAT" customClass="ColorfulNavigationViewController" customModule="POP_Flix" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="popcorn" id="pTp-CY-IcY">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="7"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Home" image="popcorn" id="pTp-CY-IcY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Izm-Tr-HKp">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -729,7 +727,7 @@ Fronteira</string>
         <image name="header" width="2222" height="1248"/>
         <image name="logo" width="901" height="1284"/>
         <image name="no-wifi" width="300" height="300"/>
-        <image name="popcorn" width="18" height="25"/>
+        <image name="popcorn" width="38" height="38"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9Ik-xW-wrK"/>
