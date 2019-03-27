@@ -12,7 +12,6 @@ import RealmSwift
 
 protocol MovieListPresenterDelegate: AnyObject {
     func movieFound(_ error: RequestErrors?)
-    func reloadTableView(row: Int)
     func latestMoviesFound(_ error: RequestErrors?)
 }
 
@@ -29,11 +28,8 @@ class MovieListPresenter {
     weak var delegate: MovieListPresenterDelegate?
     private var service = ServiceConnection()
     private var latestMovies: [Movie] = []
-    private var moviesDownloaded:[[Movie]?] = []
     private var latestMoviesImages:[(Data?, String?)] = []
     private var sectionNames: [String] = []
-    private var connectionErrors: [Bool] = [false,false,false,false,false]
-    private var isOnConnection: [Bool] = [false,false,false,false,false]
     private var realm: Realm?
     
     init() {
@@ -49,7 +45,6 @@ class MovieListPresenter {
     }
     
     func numberOfCellForSection(_ section: Int) -> Int {
-        if connectionErrors[section] { return 1 }
         guard section < sectionNames.count else { return 0 }
         switch section {
         case 0:
@@ -98,54 +93,18 @@ class MovieListPresenter {
         case SectionNames.latest.rawValue:
             if indexPathSelected.row >= latestMovies.count { return nil }
             return latestMovies[indexPathSelected.row]
-        case SectionNames.now.rawValue:
-            
-            break
-        case SectionNames.popular.rawValue:
-            
-            break
-        case SectionNames.top.rawValue:
-            
-            break
-        case SectionNames.upcoming.rawValue:
-            
-            break
         default:
             return nil
         }
-        return nil
     }
     
     func getImageDataFor(_ indexPath: IndexPath) -> Data? {
-        if connectionErrors[indexPath.section] {
-            return UIImage(named: General.errorCellImage)?.pngData()
-        }
         switch indexPath.section {
         case SectionNames.latest.rawValue:
             return moviesPoster(latestMoviesImages, indexPath.row)
-        case SectionNames.now.rawValue:
-            
-            break
-        case SectionNames.popular.rawValue:
-            
-            break
-        case SectionNames.top.rawValue:
-            
-            break
-        case SectionNames.upcoming.rawValue:
-            
-            break
         default:
             return nil
         }
-        return nil
-    }
-    
-    func isOnConnection(row: Int) -> Bool {
-        guard row < isOnConnection.count else {
-            return false
-        }
-        return isOnConnection[row]
     }
     
     // MARK: - Latest Movies Collection
@@ -169,15 +128,13 @@ class MovieListPresenter {
     // MARK: - Request
     
     func searchForLatestMovies() {
-        isOnConnection[0] = true
-        delegate?.reloadTableView(row: 0)
+        let index = SectionNames.latest.rawValue
         if let lastUpadte = UserDefaults.standard.string(forKey: UserDefaultKeys.lastUpdateLatestRelease){
             let lessTwoHours = Date().removeHour(numberOfHours: 2)
             let lessOneDay = Date().removeHour(numberOfHours: 24)
             
             if let lastDateUpdated = lastUpadte.toDateUserDefault,
                 lastDateUpdated <= lessTwoHours {
-                isOnConnection[0] = true
                 delegate?.latestMoviesFound(nil)
                 return
             } else if let lastDateUpdated = lastUpadte.toDateUserDefault,
@@ -185,7 +142,6 @@ class MovieListPresenter {
                 let latestMoviesCache = realm?.objects(LatestMovies.self).first?.movies {
                     self.latestMovies = []
                     self.latestMovies.append(contentsOf: latestMoviesCache)
-                    isOnConnection[0] = false
                     delegate?.latestMoviesFound(nil)
                     return
             }
@@ -193,8 +149,6 @@ class MovieListPresenter {
     
         guard Connectivity.isConnectedToInternet() else {
             self.latestMovies = []
-            connectionErrors[SectionNames.latest.rawValue] = true
-            isOnConnection[0] = false
             delegate?.latestMoviesFound(.noInternet)
             return
         }
@@ -202,7 +156,6 @@ class MovieListPresenter {
         let url = ServiceConnection.urlLatestMovies()
         service.makeHTTPGetRequest(url, MovieList.self) { (latestMovie, error) in
             self.latestMovies = latestMovie?.list ?? []
-            self.connectionErrors[SectionNames.latest.rawValue] = error != nil
             if error == nil {
                 let now = Date().toString()
                 UserDefaults.standard.set(now, forKey: UserDefaultKeys.lastUpdateLatestRelease)
@@ -214,10 +167,8 @@ class MovieListPresenter {
                     }
                 } catch {}
             }
-            self.isOnConnection[0] = false
             self.delegate?.latestMoviesFound(error)
         }
-        
     }
 }
 

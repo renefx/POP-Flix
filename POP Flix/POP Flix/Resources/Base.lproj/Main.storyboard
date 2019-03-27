@@ -28,31 +28,31 @@
         <scene sceneID="8bA-ap-w9B">
             <objects>
                 <tableViewController id="cpX-8F-DHk" customClass="MovieListTableViewController" customModule="POP_Flix" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qav-sy-Ye4">
+                    <tableView key="view" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="410" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qav-sy-Ye4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellMovieListIdentifier" id="aFt-zZ-Q6f" customClass="MovieListTableViewCell" customModule="POP_Flix" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="130"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="410"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aFt-zZ-Q6f" id="O3R-pd-hE9">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="410"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DcU-lT-wDI" customClass="MovieListSectionCollectionView" customModule="POP_Flix" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="2" width="375" height="128"/>
+                                            <rect key="frame" x="0.0" y="2" width="375" height="408"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <inset key="scrollIndicatorInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dOp-ZE-43y">
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dOp-ZE-43y">
                                                 <size key="itemSize" width="85" height="128"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                <inset key="sectionInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="sectionInset" minX="8" minY="10" maxX="8" maxY="10"/>
                                             </collectionViewFlowLayout>
                                             <cells>
                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="posterCellIdentifier" id="JbP-wb-NRb" customClass="PosterCollectionViewCell" customModule="POP_Flix" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="0.0" width="85" height="128"/>
+                                                    <rect key="frame" x="8" y="10" width="85" height="128"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="128"/>
@@ -92,28 +92,6 @@
                                 <connections>
                                     <outlet property="posterCollection" destination="DcU-lT-wDI" id="F1l-bX-97m"/>
                                 </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loadingCellIdentifier" id="vlx-1p-Fi8">
-                                <rect key="frame" x="0.0" y="158" width="375" height="130"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vlx-1p-Fi8" id="HyS-sN-XfI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ihp-S0-EWh">
-                                            <rect key="frame" x="159" y="36.5" width="57" height="57"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="57" id="A0a-rs-kcy"/>
-                                                <constraint firstAttribute="width" constant="57" id="izs-9f-9KV"/>
-                                            </constraints>
-                                            <color key="color" red="0.18240925669999999" green="0.5699850917" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </activityIndicatorView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="ihp-S0-EWh" firstAttribute="centerX" secondItem="HyS-sN-XfI" secondAttribute="centerX" id="AT8-Mp-uBr"/>
-                                        <constraint firstItem="ihp-S0-EWh" firstAttribute="centerY" secondItem="HyS-sN-XfI" secondAttribute="centerY" id="rQ0-Gu-hLF"/>
-                                    </constraints>
-                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -751,7 +729,7 @@ Fronteira</string>
         <image name="header" width="2222" height="1248"/>
         <image name="logo" width="901" height="1284"/>
         <image name="no-wifi" width="300" height="300"/>
-        <image name="popcorn" width="43" height="60"/>
+        <image name="popcorn" width="18" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9Ik-xW-wrK"/>

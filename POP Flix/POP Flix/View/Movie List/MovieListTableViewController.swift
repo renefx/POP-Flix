@@ -52,13 +52,10 @@ class MovieListTableViewController: UITableViewController {
     @objc func moviesRefreshData(_ sender: Any? = nil) {
         if loading != nil { return }
         startLoading()
-        
-//        ARSLineProgress.show()
         presenter.searchForLatestMovies()
     }
     
     func startLoading() {
-        
         if let view = self.tabBarController?.view {
             loading = self.createLoading(uiView: view, frame: view.frame)
         }
@@ -67,7 +64,7 @@ class MovieListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -170,11 +167,6 @@ extension MovieListTableViewController: MoviesPageViewControllerDelegate {
 
 // MARK: - Presenter Delegate
 extension MovieListTableViewController: MovieListPresenterDelegate {
-    func reloadTableView(row: Int) {
-        let indexPath = IndexPath(item: row, section: 0)
-        let indexPathsToReload = [indexPath]
-        tableView.reloadRows(at: indexPathsToReload, with: .none)
-    }
     
     func movieFound(_ error: RequestErrors?) {
         if let error = error, error == .noInternet {
@@ -186,8 +178,9 @@ extension MovieListTableViewController: MovieListPresenterDelegate {
         moviesRefreshControl.endRefreshing()
         loading = self.removeLoading(uiView: loading)
         self.tableView.tableHeaderView?.popUp()
-        collectionViews.first?.reloadData()
-        tableView.reloadData()
+        for collection in collectionViews {
+            collection.reloadData()
+        }
     }
     
     func latestMoviesFound(_ error: RequestErrors?) {
