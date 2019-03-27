@@ -56,14 +56,14 @@ class ServiceConnection {
     }
     
     // MARK: - Custom Requests (Get - Post - Authentication)
-    func makeHTTPGetRequest<T:Codable>(_ url: String,_ type: T.Type, onCompletion: @escaping (T?, RequestErrors?) -> Void) {
-        let queue = DispatchQueue(label: General.queueName, qos: .utility, attributes: [.concurrent])
+    func makeHTTPGetRequest<T:Codable>(_ url: String,_ type: T.Type,_ queueName:String = General.queueName, onCompletion: @escaping (T?, RequestErrors?) -> Void) {
+        var queue: DispatchQueue?
+        queue = DispatchQueue(label: queueName, qos: .utility, attributes: [.concurrent])
         Alamofire.request(url)
             .response(queue: queue) { (response) in
                 if let data = response.data {
                     do {
                         let object = try self.jsonDecoder.decode(type, from: data)
-                        
                         DispatchQueue.main.async {
                             onCompletion(object, nil)
                         }

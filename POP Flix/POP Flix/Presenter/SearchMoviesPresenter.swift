@@ -67,9 +67,9 @@ class SearchMoviesPresenter {
     
     public func posterForCellAt(_ row: Int) -> UIImage? {
         guard row < moviesPosters.count else {
-                return nil
+                return UIImage(named: General.errorCellImage)
         }
-        return moviesPosters[row]
+        return moviesPosters[row] ?? UIImage(named: General.errorCellImage)
     }
     
     private func imageDataForPath(_ posterPath: String, size: ImageSize = ImageSize.poster) -> Data? {
@@ -109,12 +109,16 @@ class SearchMoviesPresenter {
             }
             self.searchedMovies = movieResults
             self.colorMovies = []
+            self.moviesPosters = []
             for movie in movieResults {
                 if let path = movie.posterPath,
                     let posterData = self.imageDataForPath(path),
                     let image = UIImage(data: posterData) {
                     self.moviesPosters.append(image)
                     self.colorMovies.append(image.getColors())
+                } else {
+                    self.moviesPosters.append(UIImage(named: "errorCellImage"))
+                    self.colorMovies.append(nil)
                 }
             }
             self.hadError = error == nil ? nil : .unexpectedError

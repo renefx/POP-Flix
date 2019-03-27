@@ -8,7 +8,6 @@
 
 import UIKit
 import UIImageColors
-import ARSLineProgress
 
 class MovieListTableViewController: UITableViewController {
     @IBOutlet var pagesContainerView: UIView!
@@ -20,6 +19,8 @@ class MovieListTableViewController: UITableViewController {
     private let headerHeight: CGFloat = 45
     private let moviesRefreshControl = UIRefreshControl()
     private var collectionViews: [MovieListSectionCollectionView] = []
+    private var loading: UIView?
+    
     var firstHeaderHeight: CGFloat {
         get {
             return self.screenHeight * 0.4
@@ -29,28 +30,38 @@ class MovieListTableViewController: UITableViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.tableView.tableHeaderView = pagesContainerView
         configureRefreshControl()
         presenter.delegate = self
         self.navigationItem.title = General.appName
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         moviesRefreshData()
-        self.tableView.tableHeaderView?.popUp()
     }
     
     // MARK: - Refresh Control
     func configureRefreshControl() {
         self.refreshControl = moviesRefreshControl
+        self.refreshControl?.tintColor = .black
         moviesRefreshControl.addTarget(self, action: #selector(moviesRefreshData(_:)), for: .valueChanged)
     }
     
     @objc func moviesRefreshData(_ sender: Any? = nil) {
-        setHeaderLoading(true)
+        if loading != nil { return }
+        startLoading()
+        
+//        ARSLineProgress.show()
         presenter.searchForLatestMovies()
+    }
+    
+    func startLoading() {
+        
+        if let view = self.tabBarController?.view {
+            loading = self.createLoading(uiView: view, frame: view.frame)
+        }
     }
 
     // MARK: - Table view data source
@@ -73,12 +84,14 @@ class MovieListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.movieList, for: indexPath)
+        let identifier = CellIdentifier.movieList
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         if let cell = cell as? MovieListTableViewCell {
             cell.setCollectionViewProtocolResponder(self, indexPath.section)
             cell.section = indexPath.section
             collectionViews.append(cell.posterCollection)
         }
+        cell.popUp()
         return cell
     }
 
@@ -139,12 +152,6 @@ extension MovieListTableViewController: MoviesPageViewControllerDelegate {
         self.setNavBarTitleItemsColor(detail)
     }
     
-    func setHeaderLoading(_ isLoading: Bool) {
-        if let headerPageVC = self.children.first as? MoviesPageViewController {
-            headerPageVC.isLoading = isLoading
-        }
-    }
-    
     func stopScroll() {
         if let headerPageVC = self.children.first as? MoviesPageViewController {
             headerPageVC.stopScroll()
@@ -163,12 +170,26 @@ extension MovieListTableViewController: MoviesPageViewControllerDelegate {
 
 // MARK: - Presenter Delegate
 extension MovieListTableViewController: MovieListPresenterDelegate {
+    func reloadTableView(row: Int) {
+        let indexPath = IndexPath(item: row, section: 0)
+        let indexPathsToReload = [indexPath]
+        tableView.reloadRows(at: indexPathsToReload, with: .none)
+    }
+    
     func movieFound(_ error: RequestErrors?) {
         if let error = error, error == .noInternet {
             return
         }
     }
 
+    func finishLatestLoading() {
+        moviesRefreshControl.endRefreshing()
+        loading = self.removeLoading(uiView: loading)
+        self.tableView.tableHeaderView?.popUp()
+        collectionViews.first?.reloadData()
+        tableView.reloadData()
+    }
+    
     func latestMoviesFound(_ error: RequestErrors?) {
         if let error = error {
             let imageNamed = error == .noInternet ? General.noWifiImage : General.reloadImage
@@ -176,17 +197,14 @@ extension MovieListTableViewController: MovieListPresenterDelegate {
             erroHeaderImage.image = UIImage(named: imageNamed)
             errorHeaderText.text = errorText
             self.tableView.tableHeaderView = errorHeaderView
-            collectionViews.first?.reloadData()
-            setHeaderLoading(false)
+            finishLatestLoading()
             return
         }
         if let headerPageVC = self.children.first as? MoviesPageViewController {
             headerPageVC.movies = presenter.moviesToHeader()
             presenter.getLatestMoviesSmallPosters()
-            collectionViews.first?.reloadData()
-            headerPageVC.isLoading = false
         }
-        self.moviesRefreshControl.endRefreshing()
+        finishLatestLoading()
         
     }
     

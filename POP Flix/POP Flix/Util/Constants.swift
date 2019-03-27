@@ -18,8 +18,8 @@ struct General {
     static let reloadImage = "reload"
     static let errorCellImage = "errorCell"
     static let dateRegex = "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$"
-    static let dateUserDefaultRegex = "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] [0-9][0-9]:[0-9][0-9]$"
-    static let dateUserDefaultFormat = "dd-MM-yyy HH:mm"
+    static let dateUserDefaultRegex = "^[0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9] [0-9][0-9]:[0-9][0-9]$"
+    static let dateUserDefaultFormat = "dd-MM-yyyy HH:mm"
     static let genresText = "Genres: "
     static let movieText = "Movie"
     static let queueName = "com.renefx"
@@ -90,12 +90,13 @@ struct CellIdentifier {
     static let poster = "posterCellIdentifier"
     static let posterDetail = "posterDetailIdentifier"
     static let favorites = "favoritesCell"
+    static let loading = "loadingCellIdentifier"
     
 }
 
 enum ImageSize: String {
-    case poster_big = "original"
-    case poster = "w185"
+    case poster_big = "w780"
+    case poster = "w154"
 }
 
 struct TheMovieDBAPI {

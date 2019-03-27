@@ -17,11 +17,19 @@ class FavoritesPresenter {
         realm = try! Realm()
     }
     
+    var hasFavorites: Bool {
+        get {
+            guard let favorites = realm?.objects(FavoriteMovies.self) else {
+                return false
+            }
+            return favorites.count > 0
+        }
+    }
+    
     var qtdCellFavoriteMovies: Int {
         get {
             let favorites = realm?.objects(FavoriteMovies.self)
-            if favorites?.count == 0 { return 1 }
-            return favorites?.count ?? 1
+            return favorites?.count ?? 0
         }
     }
     
@@ -40,10 +48,13 @@ class FavoritesPresenter {
     }
     
     func moviePoster(at row: Int) -> Data? {
-        guard let favorites = realm?.objects(FavoriteMovies.self), favorites.count > 0 else {
+        guard let favorites = realm?.objects(FavoriteMovies.self),
+            favorites.count > 0,
+            row < favorites.count,
+            let data = favorites[row].posterImage else {
             return UIImage(named: General.errorCellImage)?.pngData()
         }
-        return realm?.objects(FavoriteMovies.self)[row].posterImage
+        return data
     }
     
     func movieBackgroundColor(at row: Int) -> String? {
@@ -70,10 +81,13 @@ class FavoritesPresenter {
     
     func deleteFavoriteMovie(at row: Int) {
         do {
-            guard let favoriteMovie: FavoriteMovies = realm?.objects(FavoriteMovies.self)[row],
+            guard let favorites = realm?.objects(FavoriteMovies.self),
+                favorites.count > 0,
+                row < favorites.count,
                 let realm = realm else {
                     return
             }
+            let favoriteMovie = favorites[row]
             try realm.write {
                 realm.delete(favoriteMovie)
             }

@@ -79,7 +79,10 @@ class Color {
     static let blueShadow = UIColor(hexString: "2F91FF")
     static let yellowShadow = UIColor(hexString: "FFCC33")
     static let redShadow = UIColor(hexString: "D73712")
+    static let blackShadow = UIColor(hexString: "000000")
+    static let whiteShadow = UIColor(hexString: "FFFFFF")
     static let black = "000000"
+    static let white = "FFFFFF"
     
     
     

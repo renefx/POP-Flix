@@ -21,18 +21,6 @@ class MoviesPageViewController: UIPageViewController {
     var loading: UIActivityIndicatorView?
     
     weak var delegateMovie: MoviesPageViewControllerDelegate?
-    var isLoading: Bool = false {
-        didSet {
-            if let bigPosterVC = self.viewControllers?.first as? BigPosterViewController {
-                bigPosterVC.isLoading = isLoading
-            }
-            if(isLoading) {
-                self.loading = self.createActivityIndicatory(uiView: self.view, frame: frameLoading)
-            } else {
-                self.loading?.removeFromSuperview()
-            }
-        }
-    }
     
     var movies: [(Data?, String?)] = [] {
         didSet {
@@ -63,11 +51,6 @@ class MoviesPageViewController: UIPageViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.dataSource = self
         self.delegate = self
-//        createLoadingView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     @objc func updateTimer() {
@@ -93,18 +76,6 @@ class MoviesPageViewController: UIPageViewController {
         timer.invalidate()
         lastIndex = getCurrentIndex()
     }
-    
-//    func createLoadingView() {
-//        if let frameLoading = frameLoading {
-//            let frame = CGRect(x: 0,
-//                               y: frameLoading.height/4,
-//                               width: view.frame.width,
-//                               height: frameLoading.height/2)
-//            let loading = NVActivityIndicatorView(frame: frame, type: .circleStrokeSpin, color: Color.primary, padding: 0)
-//            self.view.addSubview(loading)
-//            self.loading = loading
-//        }
-//    }
     
     func getCurrentIndex() -> Int {
         if lastIndex > 0 { return lastIndex }

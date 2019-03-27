@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import ARSLineProgress
 import UIImageColors
 
 class SearchMoviesTableViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     private var presenter = SearchMoviesPresenter()
-    var loading: UIActivityIndicatorView?
+    var loading: UIView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +53,16 @@ class SearchMoviesTableViewController: UITableViewController {
         return cell
     }
     
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if let row = self.tableView.indexPathsForVisibleRows?[0].row {
+            let background = presenter.backgroundColor(at: row)
+            searchBar.backgroundColor = background
+            self.setNavBarBackgroundColor(background)
+        }
+    }
+    
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow,
             let detailVC = segue.destination as? MovieDetailTableViewController {
@@ -74,15 +80,20 @@ extension SearchMoviesTableViewController: SearchMoviesPresenterDelegate {
         let colorForBackgrounds = presenter.backgroundColor(at: 0)
         self.setNavBarBackgroundColor(colorForBackgrounds)
         self.setNavBarTitleItemsColor(colorForTexts)
+        self.removeLoading(uiView: loading)
         tableView.reloadData()
-        ARSLineProgress.hide()
     }
 }
 
 extension SearchMoviesTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        ARSLineProgress.show()
+        if let view = self.tabBarController?.view {
+            loading = self.createLoading(uiView: view, frame: view.frame)
+        }
         presenter.searchForMovie(searchBar.text);
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
     }
 }

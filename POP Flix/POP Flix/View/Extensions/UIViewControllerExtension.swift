@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ARSLineProgress
 
 extension UIViewController {
     
@@ -27,7 +28,7 @@ extension UIViewController {
         self.navigationController?.navigationBar.tintColor = color
     }
     
-    func createActivityIndicatory(uiView: UIView, frame: CGRect, color: UIColor = Color.secondary) -> UIActivityIndicatorView {
+    func createLoading(uiView: UIView?, frame: CGRect, color: UIColor = Color.blueShadow) -> UIView? {
         
         let activityView = UIActivityIndicatorView(style: .whiteLarge)
         activityView.frame = frame
@@ -35,8 +36,17 @@ extension UIViewController {
         activityView.color = color
         activityView.startAnimating()
         
-        self.view.addSubview(activityView)
-        activityView.startAnimating()
-        return activityView
+        let container = UIView(frame: frame)
+        container.backgroundColor = Color.blackShadow.withAlphaComponent(0.50)
+        container.addSubview(activityView)
+        
+        uiView?.addSubview(container)
+        return container
+    }
+    
+    func removeLoading(uiView: UIView?) -> UIView? {
+        uiView?.removeFromSuperview()
+        ARSLineProgress.hide()
+        return nil
     }
 }

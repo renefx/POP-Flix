@@ -13,5 +13,10 @@ import RealmSwift
 public class LatestMovies: Object {
     
     // MARK: Properties
+    @objc dynamic var id = 0
     let movies = List<Movie>()
+    
+    override public static func primaryKey() -> String? {
+        return "id"
+    }
 }

@@ -21,7 +21,6 @@ class BigPosterViewController: UIViewController {
     var imageData: Data?
     var movieName: String?
     var delegate: BigPosterViewControllerDelegate?
-    var isLoading: Bool = false
     var colorPrimary: UIColor?
     var colorDetail: UIColor?
     
@@ -49,7 +48,6 @@ class BigPosterViewController: UIViewController {
     }
     
     @IBAction func selectedMovie(_ sender: Any) {
-        if isLoading { return }
         delegate?.didSelectMovie()
     }
 }

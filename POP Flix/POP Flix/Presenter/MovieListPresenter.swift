@@ -12,6 +12,7 @@ import RealmSwift
 
 protocol MovieListPresenterDelegate: AnyObject {
     func movieFound(_ error: RequestErrors?)
+    func reloadTableView(row: Int)
     func latestMoviesFound(_ error: RequestErrors?)
 }
 
@@ -31,13 +32,13 @@ class MovieListPresenter {
     private var moviesDownloaded:[[Movie]?] = []
     private var latestMoviesImages:[(Data?, String?)] = []
     private var sectionNames: [String] = []
-    private var connectionErrors: [Bool] = []
+    private var connectionErrors: [Bool] = [false,false,false,false,false]
+    private var isOnConnection: [Bool] = [false,false,false,false,false]
     private var realm: Realm?
     
     init() {
         realm = try! Realm()
         sectionNames = ["Latest","Now Playing","Popular","Top Rated","Upcoming"]
-        connectionErrors = sectionNames.map { _ in return false }
     }
     
     func titleForSection(_ row: Int) -> String {
@@ -140,6 +141,13 @@ class MovieListPresenter {
         return nil
     }
     
+    func isOnConnection(row: Int) -> Bool {
+        guard row < isOnConnection.count else {
+            return false
+        }
+        return isOnConnection[row]
+    }
+    
     // MARK: - Latest Movies Collection
     func getLatestMoviesSmallPosters() -> [(Data?, String?)] {
         self.latestMoviesImages = latestMovies.map({
@@ -161,36 +169,55 @@ class MovieListPresenter {
     // MARK: - Request
     
     func searchForLatestMovies() {
-        let lessOneHour = Date().removeHour(numberOfHours: 1)
-        if let lastUpadte = UserDefaults.standard.string(forKey: UserDefaultKeys.lastUpdateLatestRelease),
-            let lastDateUpdated = lastUpadte.toDateUserDefault,
-            lastDateUpdated > lessOneHour {
+        isOnConnection[0] = true
+        delegate?.reloadTableView(row: 0)
+        if let lastUpadte = UserDefaults.standard.string(forKey: UserDefaultKeys.lastUpdateLatestRelease){
+            let lessTwoHours = Date().removeHour(numberOfHours: 2)
+            let lessOneDay = Date().removeHour(numberOfHours: 24)
             
-            if let latestMoviesCache = realm?.objects(LatestMovies.self).first?.movies {
-                self.latestMovies = []
-                self.latestMovies.append(contentsOf: latestMoviesCache)
-                UserDefaults.standard.set(lastDateUpdated.toString(), forKey: UserDefaultKeys.lastUpdateLatestRelease)
+            if let lastDateUpdated = lastUpadte.toDateUserDefault,
+                lastDateUpdated <= lessTwoHours {
+                isOnConnection[0] = true
                 delegate?.latestMoviesFound(nil)
                 return
+            } else if let lastDateUpdated = lastUpadte.toDateUserDefault,
+                lastDateUpdated <= lessOneDay,
+                let latestMoviesCache = realm?.objects(LatestMovies.self).first?.movies {
+                    self.latestMovies = []
+                    self.latestMovies.append(contentsOf: latestMoviesCache)
+                    isOnConnection[0] = false
+                    delegate?.latestMoviesFound(nil)
+                    return
             }
         }
+    
         guard Connectivity.isConnectedToInternet() else {
             self.latestMovies = []
             connectionErrors[SectionNames.latest.rawValue] = true
+            isOnConnection[0] = false
             delegate?.latestMoviesFound(.noInternet)
             return
         }
         
         let url = ServiceConnection.urlLatestMovies()
-        service.makeHTTPGetRequest(url, MovieList.self) { (latestMovies, error) in
-            self.latestMovies = latestMovies?.list ?? []
+        service.makeHTTPGetRequest(url, MovieList.self) { (latestMovie, error) in
+            self.latestMovies = latestMovie?.list ?? []
             self.connectionErrors[SectionNames.latest.rawValue] = error != nil
-            if !error {
+            if error == nil {
                 let now = Date().toString()
                 UserDefaults.standard.set(now, forKey: UserDefaultKeys.lastUpdateLatestRelease)
+                let latestCache = LatestMovies()
+                latestCache.movies.append(objectsIn: self.latestMovies)
+                do {
+                    try self.realm?.write {
+                        self.realm?.add(latestCache, update: true)
+                    }
+                } catch {}
             }
+            self.isOnConnection[0] = false
             self.delegate?.latestMoviesFound(error)
         }
+        
     }
 }
 
