@@ -87,6 +87,7 @@ class FavoritesTableViewController: UITableViewController {
         if (editingStyle == .delete) {
             presenter.deleteFavoriteMovie(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .left)
+            tableView.reloadData()
         }
     }
     
