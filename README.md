@@ -3,7 +3,7 @@ iOS 12 Swift Catálogo de filmes.
 
 Um simples App de catálogo de filmes que permite busca e favoritos. Os dados do filme vem da [The Movie Database API](https://developers.themoviedb.org).
 
-![](https://github.com/renefx/POP-Flix/src/master/popflix.png)
+![](https://github.com/renefx/POP-Flix/blob/master/popflix.png)
 
 ## Compatibilidade
 Esse projeto é escrito em Swift 4.2 e necessita de um Xcode Xcode 10.1+ e Cocoapods 1.6.0
