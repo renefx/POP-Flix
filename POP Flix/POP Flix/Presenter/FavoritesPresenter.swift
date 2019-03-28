@@ -57,19 +57,21 @@ class FavoritesPresenter {
         return data
     }
     
-    func movieBackgroundColor(at row: Int) -> String? {
-        guard let favorites = realm?.objects(FavoriteMovies.self), favorites.count > 0 else {
+    func movieBackgroundColor(at row: Int) -> UIColor {
+        guard let favorites = realm?.objects(FavoriteMovies.self), favorites.count > 0,
+            let colorBackground = realm?.objects(FavoriteMovies.self)[row].colorBackground else {
             let index = row % Color.colorArray.count
-            return Color.colorArray[index].toHexString
+            return Color.colorArray[index]
         }
-        return realm?.objects(FavoriteMovies.self)[row].colorBackground
+        return UIColor(hexString: colorBackground)
     }
     
-    func movieTextColor(at row: Int) -> String? {
-        guard let favorites = realm?.objects(FavoriteMovies.self), favorites.count > 0 else {
-            return Color.black
+    func movieTextColor(at row: Int) -> UIColor {
+        guard let favorites = realm?.objects(FavoriteMovies.self), favorites.count > 0,
+            let colorText = realm?.objects(FavoriteMovies.self)[row].colorPrimary else {
+            return .black
         }
-        return realm?.objects(FavoriteMovies.self)[row].colorPrimary
+        return UIColor(hexString: colorText)
     }
     
     func movie(at row: Int) -> Movie? {

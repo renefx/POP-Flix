@@ -10,6 +10,8 @@ import UIKit
 import UIImageColors
 
 class FavoritesTableViewController: UITableViewController {
+    @IBOutlet var headerNoMovie: UIView!
+    
     let presenter = FavoritesPresenter()
     private let favoritesRefreshControl = UIRefreshControl()
 
@@ -27,7 +29,16 @@ class FavoritesTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        return presenter.hasFavorites ? nil : headerNoMovie
+    }
 
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return presenter.hasFavorites ? 0 : 50
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.qtdCellFavoriteMovies
     }
@@ -39,26 +50,20 @@ class FavoritesTableViewController: UITableViewController {
             let row = indexPath.row
             cell.movieTitle.text = presenter.movieTitle(at: row)
             cell.movieTagline.text = presenter.movieTagline(at: row)
-            if let posterData = presenter.moviePoster(at: row),
-               let image = UIImage(data: posterData) {
-                cell.posterImage.image = image
-                if let colorTextString = presenter.movieTextColor(at: row),
-                    let colorBackgroundsString = presenter.movieBackgroundColor(at: row) {
-                    
-                    let colorForTexts = UIColor(hexString: colorTextString)
-                    let colorForBackgrounds = UIColor(hexString: colorBackgroundsString)
-                    cell.backgroundColor = colorForBackgrounds
-                    cell.movieTitle.textColor = colorForTexts
-                    cell.movieTagline.textColor = colorForTexts
-
-                    if row == 0 {
-                        self.setNavBarBackgroundColor(colorForBackgrounds)
-                        self.setNavBarTitleItemsColor(colorForTexts)
-
-                    }
-                }
-                cell.posterImage.popUp()
+            if let posterData = presenter.moviePoster(at: row) {
+                cell.posterImage.image = UIImage(data: posterData)
             }
+            let colorForTexts = presenter.movieTextColor(at: row)
+            let colorForBackgrounds = presenter.movieBackgroundColor(at: row)
+            cell.backgroundColor = colorForBackgrounds
+            cell.movieTitle.textColor = colorForTexts
+            cell.movieTagline.textColor = colorForTexts
+            
+            if row == 0 {
+                self.setNavBarBackgroundColor(colorForBackgrounds)
+                self.setNavBarTitleItemsColor(colorForTexts)
+            }
+            cell.posterImage.popUp()
         }
         return cell
     }

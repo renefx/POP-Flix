@@ -62,19 +62,16 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="128"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <gestureRecognizers/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="85" id="VTM-85-9Ok"/>
-                                                                    <constraint firstAttribute="height" constant="128" id="xHP-hv-5PF"/>
-                                                                </constraints>
                                                             </imageView>
                                                         </subviews>
                                                     </view>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="pmx-2z-11G" firstAttribute="top" secondItem="JbP-wb-NRb" secondAttribute="top" id="Io0-bS-Iat"/>
-                                                        <constraint firstItem="pmx-2z-11G" firstAttribute="leading" secondItem="JbP-wb-NRb" secondAttribute="leading" id="mTr-b9-dqD"/>
+                                                        <constraint firstItem="pmx-2z-11G" firstAttribute="leading" secondItem="JbP-wb-NRb" secondAttribute="leading" id="8uR-Ey-XTZ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="pmx-2z-11G" secondAttribute="trailing" id="CS9-SD-4RC"/>
+                                                        <constraint firstItem="pmx-2z-11G" firstAttribute="top" secondItem="JbP-wb-NRb" secondAttribute="top" id="T0a-MM-Hee"/>
+                                                        <constraint firstAttribute="bottom" secondItem="pmx-2z-11G" secondAttribute="bottom" id="hCy-wK-Zck"/>
                                                     </constraints>
-                                                    <size key="customSize" width="85" height="128"/>
                                                     <connections>
                                                         <outlet property="posterImage" destination="pmx-2z-11G" id="dxd-iz-Kg5"/>
                                                     </connections>
@@ -101,6 +98,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="S9i-QN-SWA"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="fyh-D9-hmQ">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle">
+                            <fragment content="Lao">
+                                <attributes>
+                                    <font key="NSFont" metaFont="smallSystem"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </refreshControl>
                     <connections>
                         <outlet property="erroHeaderImage" destination="akA-B6-1YG" id="SlR-uh-I1D"/>
                         <outlet property="errorHeaderText" destination="bcz-11-BAc" id="KMG-BV-ibp"/>
@@ -116,7 +124,7 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-wifi" translatesAutoresizingMaskIntoConstraints="NO" id="akA-B6-1YG">
                             <rect key="frame" x="16" y="16" width="343" height="152.5"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check Your Internet Connection" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-11-BAc">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verifique sua conexão com a Internet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-11-BAc">
                             <rect key="frame" x="16" y="180.5" width="343" height="67.5"/>
                             <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="27"/>
                             <color key="textColor" red="0.18240925669670105" green="0.56998509168624878" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -199,6 +207,11 @@
                                                 <constraint firstItem="xoa-vo-Uqb" firstAttribute="top" secondItem="9kW-gY-yWB" secondAttribute="bottom" constant="5" id="nw9-52-ojQ"/>
                                                 <constraint firstItem="9kW-gY-yWB" firstAttribute="top" secondItem="loX-Sj-oWj" secondAttribute="topMargin" constant="5" id="zI3-OQ-ynf"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="backgroundPosterDetail"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="TEU-sN-kgc">
@@ -373,6 +386,9 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="backgroundPosterView" destination="loX-Sj-oWj" id="dnV-XE-exe"/>
                         <outlet property="moreLikeThisCollection" destination="Tcd-9F-cPT" id="tUA-I6-TqY"/>
@@ -480,13 +496,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="145.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any movie saved 🧐" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s3W-6o-7Hh">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s3W-6o-7Hh">
                                             <rect key="frame" x="105" y="9.5" width="258" height="97"/>
                                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="65"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="errorCell" translatesAutoresizingMaskIntoConstraints="NO" id="nGm-lo-uG5">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="nGm-lo-uG5">
                                             <rect key="frame" x="12" y="9.5" width="85" height="128"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <gestureRecognizers/>
@@ -517,6 +533,11 @@
                                         <constraint firstItem="hDl-rd-yJ1" firstAttribute="bottom" secondItem="nGm-lo-uG5" secondAttribute="bottom" id="eey-p4-AhR"/>
                                         <constraint firstAttribute="bottom" secondItem="nGm-lo-uG5" secondAttribute="bottom" constant="9" id="xn7-ep-Ncp"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="backgroundPosterDetail"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="movieTagline" destination="hDl-rd-yJ1" id="3sh-lS-orI"/>
@@ -532,8 +553,31 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" id="Jtx-ep-V85"/>
+                    <connections>
+                        <outlet property="headerNoMovie" destination="m4b-ZV-hLR" id="I7x-TI-s1z"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwH-QO-NtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="m4b-ZV-hLR">
+                    <rect key="frame" x="0.0" y="0.0" width="340" height="150"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't favorite movies 🕵️‍♂️" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3EB-Ze-Fm6">
+                            <rect key="frame" x="20" y="20" width="300" height="130"/>
+                            <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="65"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="3EB-Ze-Fm6" firstAttribute="leading" secondItem="m4b-ZV-hLR" secondAttribute="leading" constant="20" id="A7x-Am-ORj"/>
+                        <constraint firstItem="3EB-Ze-Fm6" firstAttribute="top" secondItem="TF2-fC-wIS" secondAttribute="top" constant="20" id="HMx-kp-xN1"/>
+                        <constraint firstItem="TF2-fC-wIS" firstAttribute="bottom" secondItem="3EB-Ze-Fm6" secondAttribute="bottom" id="StJ-g3-Dsz"/>
+                        <constraint firstItem="TF2-fC-wIS" firstAttribute="trailing" secondItem="3EB-Ze-Fm6" secondAttribute="trailing" constant="20" id="hkO-FB-WRp"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="TF2-fC-wIS"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1485.5999999999999" y="894.60269865067471"/>
         </scene>
@@ -642,13 +686,13 @@ Fronteira</string>
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="145.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No movie found 🕵️‍♂️" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8c-Wz-wpO">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8c-Wz-wpO">
                                             <rect key="frame" x="105" y="9.5" width="258" height="97"/>
                                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="65"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="errorCell" translatesAutoresizingMaskIntoConstraints="NO" id="p0l-S3-m1w">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="p0l-S3-m1w">
                                             <rect key="frame" x="12" y="9.5" width="85" height="128"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <gestureRecognizers/>
@@ -728,8 +772,9 @@ Fronteira</string>
         <image name="logo" width="901" height="1284"/>
         <image name="no-wifi" width="300" height="300"/>
         <image name="popcorn" width="38" height="38"/>
+        <image name="poster" width="185" height="278"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9Ik-xW-wrK"/>
+        <segue reference="rhB-tH-50r"/>
     </inferredMetricsTieBreakers>
 </document>

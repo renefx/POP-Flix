@@ -28,25 +28,19 @@ extension UIViewController {
         self.navigationController?.navigationBar.tintColor = color
     }
     
-    func createLoading(uiView: UIView?, frame: CGRect, color: UIColor = Color.blueShadow) -> UIView? {
-        
-        let activityView = UIActivityIndicatorView(style: .whiteLarge)
-        activityView.frame = frame
-        activityView.center = self.view.center
-        activityView.color = color
-        activityView.startAnimating()
+    func createLoading(uiView: UIView, frame: CGRect, color: UIColor = Color.blueShadow) -> UIView? {
+        let window = UIApplication.shared.keyWindow!
         
         let container = UIView(frame: frame)
-        container.backgroundColor = Color.blackShadow.withAlphaComponent(0.50)
-        container.addSubview(activityView)
+        container.backgroundColor = UIColor.black.withAlphaComponent(0.50)
+        ARSLineProgress.show()
         
-        uiView?.addSubview(container)
+        window.addSubview(container);
         return container
     }
     
-    func removeLoading(uiView: UIView?) -> UIView? {
-        uiView?.removeFromSuperview()
+    func removeLoading(uiView: UIView?) {
         ARSLineProgress.hide()
-        return nil
+        uiView?.removeFromSuperview()
     }
 }

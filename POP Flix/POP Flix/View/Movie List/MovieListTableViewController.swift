@@ -39,20 +39,24 @@ class MovieListTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         moviesRefreshData()
     }
     
     // MARK: - Refresh Control
     func configureRefreshControl() {
+        moviesRefreshControl.beginRefreshing()
         self.refreshControl = moviesRefreshControl
         self.refreshControl?.tintColor = .black
         moviesRefreshControl.addTarget(self, action: #selector(moviesRefreshData(_:)), for: .valueChanged)
     }
     
     @objc func moviesRefreshData(_ sender: Any? = nil) {
-        if loading != nil { return }
-        startLoading()
-        presenter.searchForLatestMovies()
+        let userStarted = sender != nil
+        if !userStarted {
+            startLoading()
+        }
+        presenter.searchForLatestMovies(userStarted)
     }
     
     func startLoading() {
@@ -96,7 +100,7 @@ class MovieListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let moviePageViewController = segue.destination as? MoviesPageViewController {
             moviePageViewController.delegateMovie = self
-            moviePageViewController.movies = presenter.moviesToHeader()
+            moviePageViewController.movies = presenter.latestMoviesBigPosters
             moviePageViewController.frameLoading = pagesContainerView.frame
         }
     }
@@ -176,7 +180,7 @@ extension MovieListTableViewController: MovieListPresenterDelegate {
 
     func finishLatestLoading() {
         moviesRefreshControl.endRefreshing()
-        loading = self.removeLoading(uiView: loading)
+        self.removeLoading(uiView: loading)
         self.tableView.tableHeaderView?.popUp()
         for collection in collectionViews {
             collection.reloadData()
@@ -194,8 +198,7 @@ extension MovieListTableViewController: MovieListPresenterDelegate {
             return
         }
         if let headerPageVC = self.children.first as? MoviesPageViewController {
-            headerPageVC.movies = presenter.moviesToHeader()
-            presenter.getLatestMoviesSmallPosters()
+            headerPageVC.movies = presenter.latestMoviesBigPosters
         }
         finishLatestLoading()
         

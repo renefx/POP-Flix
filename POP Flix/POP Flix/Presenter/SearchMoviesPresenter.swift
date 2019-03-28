@@ -21,6 +21,12 @@ class SearchMoviesPresenter {
     private var service = ServiceConnection()
     private var hadError: RequestErrors?
     
+    var hasMovies: Bool {
+        get {
+            return searchedMovies.count == 0
+        }
+    }
+    
     var qtdCellSearchedMovies: Int {
         get {
             return searchedMovies.count

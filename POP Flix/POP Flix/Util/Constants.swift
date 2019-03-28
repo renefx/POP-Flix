@@ -96,7 +96,7 @@ struct CellIdentifier {
 
 enum ImageSize: String {
     case poster_big = "w780"
-    case poster = "w154"
+    case poster = "w342"
 }
 
 struct TheMovieDBAPI {
@@ -109,6 +109,10 @@ struct TheMovieDBAPI {
 struct Language {
     static let english = "en-US"
     static let portugues = "pt-BR"
+}
+
+struct HeroID {
+    static let backgroundFavoriteCell = "backgroundFavoriteCell"
 }
 
 struct UserDefaultKeys {

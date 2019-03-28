@@ -11,6 +11,7 @@ import UIImageColors
 
 class SearchMoviesTableViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet var searchForAMovieHeader: UIView!
     private var presenter = SearchMoviesPresenter()
     var loading: UIView?
 
@@ -30,6 +31,7 @@ class SearchMoviesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.qtdCellSearchedMovies
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.favorites, for: indexPath)
@@ -54,7 +56,9 @@ class SearchMoviesTableViewController: UITableViewController {
     }
     
     override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if let row = self.tableView.indexPathsForVisibleRows?[0].row {
+        let indexPathArray = self.tableView.indexPathsForVisibleRows
+        if let indexPathArray = indexPathArray, !indexPathArray.isEmpty {
+            let row = indexPathArray[0].row
             let background = presenter.backgroundColor(at: row)
             searchBar.backgroundColor = background
             self.setNavBarBackgroundColor(background)

@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import RealmSwift
 
 protocol MovieListPresenterDelegate: AnyObject {
     func movieFound(_ error: RequestErrors?)
@@ -27,15 +26,26 @@ class MovieListPresenter {
     // MARK: - Variables
     weak var delegate: MovieListPresenterDelegate?
     private var service = ServiceConnection()
-    private var latestMovies: [Movie] = []
-    private var latestMoviesImages:[(Data?, String?)] = []
-    private var sectionNames: [String] = []
-    private var realm: Realm?
-    
-    init() {
-        realm = try! Realm()
-        sectionNames = ["Latest","Now Playing","Popular","Top Rated","Upcoming"]
+    private var latestMovies: [Movie] = [] {
+        didSet {
+            latestMoviesBigPosters = latestMovies.map({
+                guard let backdropPath = $0.backdropPath else {
+                    return (nil, $0.title)
+                }
+                return (imageDataForPath(backdropPath, size: .poster_big), $0.title)
+            })
+            
+            latestMoviesSmallPosters = latestMovies.map({
+                guard let backdropPath = $0.posterPath else {
+                    return (nil, $0.title)
+                }
+                return (imageDataForPath(backdropPath), $0.title)
+            })
+        }
     }
+    var latestMoviesBigPosters:[(Data?, String?)] = []
+    private var latestMoviesSmallPosters:[(Data?, String?)] = []
+    private var sectionNames: [String] = ["Now Playing","Latest","Popular","Top Rated","Upcoming"]
     
     func titleForSection(_ row: Int) -> String {
         guard row < sectionNames.count else {
@@ -69,15 +79,6 @@ class MovieListPresenter {
         return latestMovies[row]
     }
     
-    func moviesToHeader() -> [(Data?, String?)] {
-        return latestMovies.map({
-            guard let backdropPath = $0.backdropPath else {
-                return (nil, $0.title)
-            }
-            return (imageDataForPath(backdropPath, size: .poster_big), $0.title)
-        })
-    }
-    
     private func imageDataForPath(_ posterPath: String, size: ImageSize = ImageSize.poster) -> Data? {
         let urlString = TheMovieDBAPI.urlImages + size.rawValue + posterPath
         if let url = URL(string: urlString) {
@@ -101,23 +102,13 @@ class MovieListPresenter {
     func getImageDataFor(_ indexPath: IndexPath) -> Data? {
         switch indexPath.section {
         case SectionNames.latest.rawValue:
-            return moviesPoster(latestMoviesImages, indexPath.row)
+            return moviesPoster(latestMoviesSmallPosters, indexPath.row)
         default:
             return nil
         }
     }
     
     // MARK: - Latest Movies Collection
-    func getLatestMoviesSmallPosters() -> [(Data?, String?)] {
-        self.latestMoviesImages = latestMovies.map({
-            guard let backdropPath = $0.posterPath else {
-                return (nil, $0.title)
-            }
-            return (imageDataForPath(backdropPath), $0.title)
-        })
-        return self.latestMoviesImages
-    }
-    
     func moviesPoster(_ array: [(Data?, String?)], _ row: Int) -> Data? {
         guard row < array.count else {
             return nil
@@ -127,24 +118,21 @@ class MovieListPresenter {
     
     // MARK: - Request
     
-    func searchForLatestMovies() {
-        let index = SectionNames.latest.rawValue
-        if let lastUpadte = UserDefaults.standard.string(forKey: UserDefaultKeys.lastUpdateLatestRelease){
-            let lessTwoHours = Date().removeHour(numberOfHours: 2)
-            let lessOneDay = Date().removeHour(numberOfHours: 24)
-            
-            if let lastDateUpdated = lastUpadte.toDateUserDefault,
-                lastDateUpdated <= lessTwoHours {
-                delegate?.latestMoviesFound(nil)
-                return
-            } else if let lastDateUpdated = lastUpadte.toDateUserDefault,
-                lastDateUpdated <= lessOneDay,
-                let latestMoviesCache = realm?.objects(LatestMovies.self).first?.movies {
-                    self.latestMovies = []
-                    self.latestMovies.append(contentsOf: latestMoviesCache)
-                    delegate?.latestMoviesFound(nil)
-                    return
-            }
+    func shouldGetCache() -> Bool {
+        let twoHoursAgo = Date().removeHour(numberOfHours: 2)
+        guard let lastUpdate = UserDefaults.standard.string(forKey: UserDefaultKeys.lastUpdateLatestRelease),
+            let lastDateUpdated = lastUpdate.toDateUserDefault,
+            lastDateUpdated > twoHoursAgo else {
+                return false
+        }
+        return true
+    }
+    
+    func searchForLatestMovies(_ userStarted: Bool) {
+        print(Date().toString("HH:mm:ss"))
+        if !userStarted, shouldGetCache(),!self.latestMovies.isEmpty {
+            delegate?.latestMoviesFound(nil)
+            return
         }
     
         guard Connectivity.isConnectedToInternet() else {
@@ -154,19 +142,14 @@ class MovieListPresenter {
         }
         
         let url = ServiceConnection.urlLatestMovies()
-        service.makeHTTPGetRequest(url, MovieList.self) { (latestMovie, error) in
-            self.latestMovies = latestMovie?.list ?? []
+        service.makeHTTPGetRequest(url, MovieList.self) { (latestMovies, error) in
+            self.latestMovies = latestMovies?.list ?? []
             if error == nil {
                 let now = Date().toString()
                 UserDefaults.standard.set(now, forKey: UserDefaultKeys.lastUpdateLatestRelease)
-                let latestCache = LatestMovies()
-                latestCache.movies.append(objectsIn: self.latestMovies)
-                do {
-                    try self.realm?.write {
-                        self.realm?.add(latestCache, update: true)
-                    }
-                } catch {}
             }
+            self.latestMovies = latestMovies?.list ?? []
+            print(Date().toString("HH:mm:ss"))
             self.delegate?.latestMoviesFound(error)
         }
     }

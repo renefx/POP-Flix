@@ -30,7 +30,7 @@ extension Date {
         }
     }
     
-    func toString(format: String = General.dateUserDefaultFormat) -> String {
+    func toString(_ format: String = General.dateUserDefaultFormat) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.dateFormat = format
